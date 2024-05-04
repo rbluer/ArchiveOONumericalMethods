@@ -12,20 +12,20 @@ package book.dhb.numericalmethods.interfaces;
 public interface PointSeries
 {
 
-/**
- * Returns the number of points in the series.
- */
-public int size();
-/**
- * Returns the x coordinate of the point at the given index.
- * @param index the index of the point.
- * @return x coordinate
- */
-public double xValueAt( int index);
-/**
- * Returns the y coordinate of the point at the given index.
- * @param index the index of the point.
- * @return y coordinate
- */
-public double yValueAt( int index);
+	/**
+	 * Returns the number of points in the series.
+	 */
+	public int size();
+	/**
+	 * Returns the x coordinate of the point at the given index.
+	 * @param index the index of the point.
+	 * @return x coordinate
+	 */
+	public double xValueAt( int index);
+	/**
+	 * Returns the y coordinate of the point at the given index.
+	 * @param index the index of the point.
+	 * @return y coordinate
+	 */
+	public double yValueAt( int index);
 }

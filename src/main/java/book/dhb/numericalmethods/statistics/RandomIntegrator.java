@@ -30,39 +30,39 @@ public class RandomIntegrator
 	* @param from low limit of integral (array is copied).
 	* @param to high limit of integral (array is copied).
 	*/
-public RandomIntegrator ( ManyVariableFunction func, double[] from, double[] to)
-{
-	f = func;
-	int n = from.length;
-	a = new double[n];
-	range = new double[n];
-	for ( int i = 0; i < n; i++)
+	public RandomIntegrator ( ManyVariableFunction func, double[] from, double[] to)
 	{
-		a[i] = from[i];
-		range[i] = to[i] - from[i];
+		f = func;
+		int n = from.length;
+		a = new double[n];
+		range = new double[n];
+		for ( int i = 0; i < n; i++)
+		{
+			a[i] = from[i];
+			range[i] = to[i] - from[i];
+		}
 	}
-}
-/**
- * Compute the integral.
- * @param totalCount number of Monte Carlo trials.
- * @param upperLimit value larger than the maximum of the function over the integral range.
- * @return integral value
- */
-public double getResult ( int totalCount, double upperLimit)
-{
-	int n = a.length;
-	double[] x = new double[ n];
-	int hits = 0;
-	for ( int count = 0; count < totalCount; count ++)
+	/**
+	 * Compute the integral.
+	 * @param totalCount number of Monte Carlo trials.
+	 * @param upperLimit value larger than the maximum of the function over the integral range.
+	 * @return integral value
+	 */
+	public double getResult ( int totalCount, double upperLimit)
 	{
+		int n = a.length;
+		double[] x = new double[ n];
+		int hits = 0;
+		for ( int count = 0; count < totalCount; count ++)
+		{
+			for ( int i = 0; i < n; i++ )
+				x[i] = a[i] + Math.random() * range[i];
+			if ( Math.random() * upperLimit <= f.value( x) )
+				hits++;
+		}
+		double answer = upperLimit * (double) hits / (double) totalCount;
 		for ( int i = 0; i < n; i++ )
-			x[i] = a[i] + Math.random() * range[i];
-		if ( Math.random() * upperLimit <= f.value( x) )
-			hits++;
+			answer *= range[i];
+		return 	answer;
 	}
-	double answer = upperLimit * (double) hits / (double) totalCount;
-	for ( int i = 0; i < n; i++ )
-		answer *= range[i];
-	return 	answer;
-}
 }

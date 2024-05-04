@@ -6,9 +6,9 @@ package book.dhb.numericalmethods.interfaces;
  * @author Didier H. Besset
  */
 public interface PointSeriesWithErrors extends PointSeries {
-/**
- * @return double    weight of the point
- * @param n int
- */
-double weightAt(int n);
+	/**
+	 * @return double    weight of the point
+	 * @param n int
+	 */
+	double weightAt(int n);
 }

@@ -5,7 +5,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import DhbGUIUtilityClasses.DhbFloatingFormat;
+import book.dhb.numericalmethods.GUIUtilityClasses.DhbFloatingFormat;
 /**
  * A PlottingScale defines a scale used to convert double values
  * into pixels and back.
@@ -352,19 +352,19 @@ public class PlottingScale
 		}
 		return exponent;	// Should never reach here
 	}
-/**
- * Answers an array containing a sampling range to obtain enough points across the X axis.
- * @param sampling distance in pixels between the sampling points.
- * @return range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
- */
-public double[] samplingRange ( int sampling)
-{
-	double[] range = new double[3];
-	range[0] = scaleMinimum;
-	range[1] = scaleMinimum + scaleRange;
-	range[2] = scaleRange * (double) sampling / (double) axisLength;
-	return range;
-}
+	/**
+	 * Answers an array containing a sampling range to obtain enough points across the X axis.
+	 * @param sampling distance in pixels between the sampling points.
+	 * @return range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
+	 */
+	public double[] samplingRange ( int sampling)
+	{
+		double[] range = new double[3];
+		range[0] = scaleMinimum;
+		range[1] = scaleMinimum + scaleRange;
+		range[2] = scaleRange * (double) sampling / (double) axisLength;
+		return range;
+	}
 	/**
 	 * Defines the axis length.
 	 * @param length of the axis in pixel (must be positive).

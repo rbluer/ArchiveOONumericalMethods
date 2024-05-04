@@ -10,24 +10,24 @@ import book.dhb.numericalmethods.interfaces.OneVariableFunction;
  */
 public class MinimizingPointFactory extends OptimizingPointFactory
 {
-/**
- * Constructor method.
- */
-public MinimizingPointFactory() {
-    super();
-}
-/**
- * @return OptimizingPoint    an minimizing point strategy.
- */
-public OptimizingPoint createPoint(double x, OneVariableFunction f)
-{
-    return new MinimizingPoint( x, f);
-}
-/**
- * @return OptimizingVector    an minimizing vector strategy.
- */
-public OptimizingVector createVector(double[] v, ManyVariableFunction f)
-{
-    return new MinimizingVector( v, f);
-}
+	/**
+	 * Constructor method.
+	 */
+	public MinimizingPointFactory() {
+	    super();
+	}
+	/**
+	 * @return OptimizingPoint    an minimizing point strategy.
+	 */
+	public OptimizingPoint createPoint(double x, OneVariableFunction f)
+	{
+	    return new MinimizingPoint( x, f);
+	}
+	/**
+	 * @return OptimizingVector    an minimizing vector strategy.
+	 */
+	public OptimizingVector createVector(double[] v, ManyVariableFunction f)
+	{
+	    return new MinimizingVector( v, f);
+	}
 }

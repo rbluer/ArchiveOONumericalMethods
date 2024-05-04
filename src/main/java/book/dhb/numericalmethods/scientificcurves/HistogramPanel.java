@@ -59,44 +59,44 @@ public class HistogramPanel extends Panel
 	{
 		this( histogram, new HistogramDefinition( histogram));
 	}
-/**
- * This method was created by a SmartGuide.
- * @param histogram curves.Histogram
- * @param histogramDefinition curves.HistogramDefinition
- */
-public HistogramPanel ( Histogram histogram, HistogramDefinition histogramDefinition)
-{
-	setLayout( new BorderLayout());
-	histogramDisplay = new Scatterplot();
-	histogramDisplay.addCurve( histogramDefinition, "Count", false, true);
-	add("Center", histogramDisplay);
-	add("South", statisticsPanel( histogram));
-}
-/**
- * This method was created by a SmartGuide.
- * @param histogramDefinition curves.HistogramDefinition
- */
-public HistogramPanel ( HistogramDefinition histogramDefinition) {
-}
-/**
- * Overlay a curve on the histogram's display.
- * @param curve overlay curve definition.
- */
-public void overlayCurve( HistogramOrCurveDefinition curve)
-{
-	histogramDisplay.addCurve( curve, "Count", false, false);
-	return;
-}
-/**
- * Overlay a function on the histogram's display.
- * @param curve overlay curve definition.
- */
-public void overlayFunction ( OneVariableFunction func, int sampling)
-{
-	FunctionalCurveDefinition defCurve = new FunctionalCurveDefinition( func, sampling);
-	defCurve.setLineColor( Color.red);
-	overlayCurve( defCurve);
-}
+	/**
+	 * This method was created by a SmartGuide.
+	 * @param histogram curves.Histogram
+	 * @param histogramDefinition curves.HistogramDefinition
+	 */
+	public HistogramPanel ( Histogram histogram, HistogramDefinition histogramDefinition)
+	{
+		setLayout( new BorderLayout());
+		histogramDisplay = new Scatterplot();
+		histogramDisplay.addCurve( histogramDefinition, "Count", false, true);
+		add("Center", histogramDisplay);
+		add("South", statisticsPanel( histogram));
+	}
+	/**
+	 * This method was created by a SmartGuide.
+	 * @param histogramDefinition curves.HistogramDefinition
+	 */
+	public HistogramPanel ( HistogramDefinition histogramDefinition) {
+	}
+	/**
+	 * Overlay a curve on the histogram's display.
+	 * @param curve overlay curve definition.
+	 */
+	public void overlayCurve( HistogramOrCurveDefinition curve)
+	{
+		histogramDisplay.addCurve( curve, "Count", false, false);
+		return;
+	}
+	/**
+	 * Overlay a function on the histogram's display.
+	 * @param curve overlay curve definition.
+	 */
+	public void overlayFunction ( OneVariableFunction func, int sampling)
+	{
+		FunctionalCurveDefinition defCurve = new FunctionalCurveDefinition( func, sampling);
+		defCurve.setLineColor( Color.red);
+		overlayCurve( defCurve);
+	}
 	/**
 	 * Constructs the panel used to show the statistics of the histogram.
 	 * @return the panel of statistics

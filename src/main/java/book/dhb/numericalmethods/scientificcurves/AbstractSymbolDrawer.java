@@ -9,8 +9,8 @@ import java.awt.Graphics;
 abstract class AbstractSymbolDrawer
 {
 
-/**
- * Symbol ploting method.
- */
-public abstract void plotSymbol ( Graphics g, int x, int y, int size);
+	/**
+	 * Symbol ploting method.
+	 */
+	public abstract void plotSymbol ( Graphics g, int x, int y, int size);
 }

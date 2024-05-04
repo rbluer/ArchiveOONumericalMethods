@@ -524,355 +524,355 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		currentCursor = getCursor();
 		setCursor( Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
 	}
-/**
- * (c) Copyrights Didier BESSET, 1999, all rights reserved.
- * @param e java.awt.event.MouseEvent
- */
-private boolean isLeftButtonEvent( MouseEvent e)
-{
-	return ( e.getModifiers() & ( InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON1_MASK;
-}
-/**
- * (c) Copyrights Didier BESSET, 1999, all rights reserved.
- * @param e java.awt.event.MouseEvent
- */
-private boolean isRightButtonEvent( MouseEvent e)
-{
-	return ( e.getModifiers() & (InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON3_MASK;
-}
-/**
- * mouseClicked method comment.
- */
-public void mouseClicked(MouseEvent e)
-{
-	if ( isLeftButtonEvent( e) )
-	{
-		int x = e.getX();
-		int y = e.getY();
-		if ( !clickOnAxis( x, y) )
-			clickOnCurve( x, y);
-	}
-}
-/**
- * (c) Copyrights Didier BESSET, 1999, all rights reserved.
- * @param e MouseEvent
- */
-public void mouseDragged(MouseEvent e)
-{
-	if ( isRightButtonEvent( e) )
-	{
-			if ( trackingWindow != null )
-				trackCoordinates( e.getX(), e.getY());
-	}
-}
-/**
- * mouseEntered method comment.
- */
-public void mouseEntered(MouseEvent e) {
-}
-/**
- * mouseExited method comment.
- */
-public void mouseExited(MouseEvent e) {
-}
-/**
- * mouseMoved method comment.
- */
-public void mouseMoved(MouseEvent e) {
-}
-/**
- * (c) Copyrights Didier BESSET, 1999, all rights reserved.
- * @param e java.awt.event.MouseEvent
- */
-public void mousePressed(MouseEvent e)
-{
-	if ( isRightButtonEvent( e) )
-	{
-		initializeTracking();
-		trackCoordinates( e.getX(), e.getY());
-		trackingWindow.setVisible( true);
-	}
-}
-/**
- * mouseReleased method comment.
- */
-public void mouseReleased(MouseEvent e)
-{
-	if ( trackingWindow != null )
-		terminateTracking();
-}
 	/**
-	 * Returns the number of curves defined in the scatterplot.
-	 * @return the number of curves defined in the scatterplot.
+	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
+	 * @param e java.awt.event.MouseEvent
 	 */
-	public int numberOfCurves()
+	private boolean isLeftButtonEvent( MouseEvent e)
 	{
-		return curves.size();
+		return ( e.getModifiers() & ( InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON1_MASK;
 	}
 	/**
-	 * Draws the contents of the scatterplot (main display method called by Canvas).
-	 * @see Canvas
-	 * @param g graphics context used to perform the drawing.
+	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
+	 * @param e java.awt.event.MouseEvent
 	 */
-	public void paint( Graphics g)
+	private boolean isRightButtonEvent( MouseEvent e)
 	{
-		if ( axisSystems.isEmpty() )
+		return ( e.getModifiers() & (InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON3_MASK;
+	}
+	/**
+	 * mouseClicked method comment.
+	 */
+	public void mouseClicked(MouseEvent e)
+	{
+		if ( isLeftButtonEvent( e) )
 		{
-			String message = "No curves defined";
+			int x = e.getX();
+			int y = e.getY();
+			if ( !clickOnAxis( x, y) )
+				clickOnCurve( x, y);
+		}
+	}
+	/**
+	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
+	 * @param e MouseEvent
+	 */
+	public void mouseDragged(MouseEvent e)
+	{
+		if ( isRightButtonEvent( e) )
+		{
+				if ( trackingWindow != null )
+					trackCoordinates( e.getX(), e.getY());
+		}
+	}
+	/**
+	 * mouseEntered method comment.
+	 */
+	public void mouseEntered(MouseEvent e) {
+	}
+	/**
+	 * mouseExited method comment.
+	 */
+	public void mouseExited(MouseEvent e) {
+	}
+	/**
+	 * mouseMoved method comment.
+	 */
+	public void mouseMoved(MouseEvent e) {
+	}
+	/**
+	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
+	 * @param e java.awt.event.MouseEvent
+	 */
+	public void mousePressed(MouseEvent e)
+	{
+		if ( isRightButtonEvent( e) )
+		{
+			initializeTracking();
+			trackCoordinates( e.getX(), e.getY());
+			trackingWindow.setVisible( true);
+		}
+	}
+	/**
+	 * mouseReleased method comment.
+	 */
+	public void mouseReleased(MouseEvent e)
+	{
+		if ( trackingWindow != null )
+			terminateTracking();
+	}
+		/**
+		 * Returns the number of curves defined in the scatterplot.
+		 * @return the number of curves defined in the scatterplot.
+		 */
+		public int numberOfCurves()
+		{
+			return curves.size();
+		}
+		/**
+		 * Draws the contents of the scatterplot (main display method called by Canvas).
+		 * @see Canvas
+		 * @param g graphics context used to perform the drawing.
+		 */
+		public void paint( Graphics g)
+		{
+			if ( axisSystems.isEmpty() )
+			{
+				String message = "No curves defined";
+				Rectangle boundingBox = getBounds();
+				FontMetrics fm = g.getFontMetrics();
+				int x = ( boundingBox.width - fm.stringWidth(message)) / 2;
+				g.drawString( message, x, boundingBox.height / 2);
+			}
+			else
+				paintCurves( g);
+		}
+		/**
+		 * Draws the labels of the selected axes
+		 * @param g graphics context used to perform the drawing.
+		 */
+		private void paintAxisLabels( Graphics g)
+		{
+			if ( cartesianAxes )
+			{
+				switch ( xAxisOrientation )
+				{
+				case RIGHT:
+					if ( xAxisLabel != null )
+						paintRightBottomLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintLeftTopLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintRightTopLabel( g, selectedSecondaryAxis);
+					break;
+				case LEFT:
+					if ( xAxisLabel != null )
+						paintLeftTopLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintRightBottomLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintLeftBottomLabel( g, selectedSecondaryAxis);
+					break;
+				case UP:
+					if ( xAxisLabel != null )
+						paintRightTopLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintLeftBottomLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintLeftTopLabel( g, selectedSecondaryAxis);
+					break;
+				case DOWN:
+					if ( xAxisLabel != null )
+						paintLeftBottomLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintRightTopLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintRightBottomLabel( g, selectedSecondaryAxis);
+					break;
+				}
+			}
+			else
+			{
+				switch ( xAxisOrientation )
+				{
+				case RIGHT:
+					if ( xAxisLabel != null )
+						paintRightTopLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintLeftBottomLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintRightBottomLabel( g, selectedSecondaryAxis);
+					break;
+				case LEFT:
+					if ( xAxisLabel != null )
+						paintLeftBottomLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintRightTopLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintLeftTopLabel( g, selectedSecondaryAxis);
+					break;
+				case UP:
+					if ( xAxisLabel != null )
+						paintLeftTopLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintRightBottomLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintRightTopLabel( g, selectedSecondaryAxis);
+					break;
+				case DOWN:
+					if ( xAxisLabel != null )
+						paintRightBottomLabel( g, xAxisLabel);
+					if ( selectedAxis != null )
+						paintLeftTopLabel( g, selectedAxis);
+					if ( selectedSecondaryAxis != null )
+						paintLeftBottomLabel( g, selectedSecondaryAxis);
+					break;
+				}
+			}
+		}
+		/**
+		 * Draws each curve of the scatterplot
+		 * @param g graphics context used to perform the drawing.
+		 */
+		private void paintCurves( Graphics g)
+		{
+			Rectangle boundingBox = getBounds();
+			if ( ( width != boundingBox.width) || (height != boundingBox.height) )
+			{
+				width = boundingBox.width;
+				height = boundingBox.height;
+				computeDimensions( g);
+			}
+			g.clearRect( 0, 0, width, height);
+			AxisSystem axis = (AxisSystem) axisSystems.get( selectedAxis);
+			if ( secondaryAxis && selectedSecondaryAxis != null )
+			{
+				axis = (AxisSystem) axisSystems.get( selectedSecondaryAxis);
+			}
+			paintAxisLabels( g);
+	//		g.clipRect( clipRectangle.x, clipRectangle.y, clipRectangle.width, clipRectangle.height);
+			for( int n = 0; n < curves.size(); n++)
+			{
+				ScaledCurve c = (ScaledCurve) curves.elementAt( n);
+				c.curve.plotCurve( g, (AxisSystem) axisSystems.get( c.scaleName));
+			}
+	//		g.clipRect( 0, 0, width, height);
+			axis.drawAxes( g, tickmarkSize, true);
+			if ( secondaryAxis && selectedSecondaryAxis != null )
+			{
+				axis.drawSecondaryAxis( g, tickmarkSize, true);
+			}
+		}
+		/**
+		 * Draws the axis label located near the bottom left corner (if any)
+		 * @param g graphics context used to perform the drawing.
+		 * @param label text of the axis label
+		 */
+		private void paintLeftBottomLabel( Graphics g, String label)
+		{
 			Rectangle boundingBox = getBounds();
 			FontMetrics fm = g.getFontMetrics();
-			int x = ( boundingBox.width - fm.stringWidth(message)) / 2;
-			g.drawString( message, x, boundingBox.height / 2);
+			int x = Math.max( clipRectangle.x - fm.stringWidth( label), fm.getHeight());
+			g.drawString( label, x, boundingBox.height - fm.getDescent());
 		}
-		else
-			paintCurves( g);
-	}
+		/**
+		 * Draws the axis label located near the top left corner (if any)
+		 * @param g graphics context used to perform the drawing.
+		 * @param label text of the axis label
+		 */
+		private void paintLeftTopLabel( Graphics g, String label)
+		{
+			FontMetrics fm = g.getFontMetrics();
+			int x = Math.max( clipRectangle.x - fm.stringWidth( label), fm.getHeight());
+			g.drawString( label, x, clipRectangle.y - fm.getDescent());
+		}
+		/**
+		 * Draws the axis label located near the bottom right corner (if any)
+		 * @param g graphics context used to perform the drawing.
+		 * @param label text of the axis label
+		 */
+		private void paintRightBottomLabel( Graphics g, String label)
+		{
+			Rectangle boundingBox = getBounds();
+			FontMetrics fm = g.getFontMetrics();
+			int x = Math.min( boundingBox.width - fm.stringWidth( label) - fm.getHeight(), clipRectangle.x + clipRectangle.width);
+			g.drawString( label, x, boundingBox.height - fm.getDescent());
+		}
+		/**
+		 * Draws the axis label located near the top right corner (if any)
+		 * @param g graphics context used to perform the drawing.
+		 * @param label text of the axis label
+		 */
+		private void paintRightTopLabel( Graphics g, String label)
+		{
+			Rectangle boundingBox = getBounds();
+			FontMetrics fm = g.getFontMetrics();
+			int x = Math.min( boundingBox.width - fm.stringWidth( label) - fm.getHeight(), clipRectangle.x + clipRectangle.width);
+			g.drawString( label, x, clipRectangle.y - fm.getDescent());
+		}
+		/**
+		 * Finds the frame containing the scatterplot.
+		 */
+		private Frame parentFrame()
+		{
+			Component parent = getParent();
+			while ( parent.getParent() != null)
+				parent = parent.getParent();
+			return (Frame) parent;
+		}
+		/**
+		 * Removes a curve from the scatterplot. Curves are indexed in order
+		 * of insertion starting from 0. The scatterplot is painted anew.
+		 * @param index index of the curve to be removed.
+		 */
+		public void removeCurve( int index) throws ArrayIndexOutOfBoundsException
+		{
+			removeCurveNoUpdate( index);
+			reset();
+		}
 	/**
-	 * Draws the labels of the selected axes
-	 * @param g graphics context used to perform the drawing.
+	 * Removes a given curve definition from the receiver and repaint it.
+	 * If the curve is not part of the receiver, nothing is done.
+	 * @param curve HistogramOrCurveDefinition		curve to be removed.
 	 */
-	private void paintAxisLabels( Graphics g)
+	public void removeCurve( HistogramOrCurveDefinition curve)
 	{
-		if ( cartesianAxes )
-		{
-			switch ( xAxisOrientation )
-			{
-			case RIGHT:
-				if ( xAxisLabel != null )
-					paintRightBottomLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintLeftTopLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintRightTopLabel( g, selectedSecondaryAxis);
-				break;
-			case LEFT:
-				if ( xAxisLabel != null )
-					paintLeftTopLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintRightBottomLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintLeftBottomLabel( g, selectedSecondaryAxis);
-				break;
-			case UP:
-				if ( xAxisLabel != null )
-					paintRightTopLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintLeftBottomLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintLeftTopLabel( g, selectedSecondaryAxis);
-				break;
-			case DOWN:
-				if ( xAxisLabel != null )
-					paintLeftBottomLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintRightTopLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintRightBottomLabel( g, selectedSecondaryAxis);
-				break;
-			}
-		}
-		else
-		{
-			switch ( xAxisOrientation )
-			{
-			case RIGHT:
-				if ( xAxisLabel != null )
-					paintRightTopLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintLeftBottomLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintRightBottomLabel( g, selectedSecondaryAxis);
-				break;
-			case LEFT:
-				if ( xAxisLabel != null )
-					paintLeftBottomLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintRightTopLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintLeftTopLabel( g, selectedSecondaryAxis);
-				break;
-			case UP:
-				if ( xAxisLabel != null )
-					paintLeftTopLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintRightBottomLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintRightTopLabel( g, selectedSecondaryAxis);
-				break;
-			case DOWN:
-				if ( xAxisLabel != null )
-					paintRightBottomLabel( g, xAxisLabel);
-				if ( selectedAxis != null )
-					paintLeftTopLabel( g, selectedAxis);
-				if ( selectedSecondaryAxis != null )
-					paintLeftBottomLabel( g, selectedSecondaryAxis);
-				break;
-			}
-		}
+		if ( removeCurveNoUpdate( curve))
+			reset();
+		return;
 	}
+		/**
+		 * Removes a curve from the scatterplot. Curves are indexed in order
+		 * of insertion starting from 0. The scatterplot display is not updated.
+		 * @param index index of the curve to be removed.
+		 */
+		public void removeCurveNoUpdate( int index) throws ArrayIndexOutOfBoundsException
+		{
+			ScaledCurve removedCurve = (ScaledCurve) curves.elementAt( index);
+			curves.removeElementAt( index);
+			boolean obsoleteAxes = true;
+			for ( int n = 0; n < curves.size(); n++ )
+			{
+				if ( ( (ScaledCurve) curves.elementAt( n)).scaleName.equals( removedCurve.scaleName) )
+					obsoleteAxes = false;
+			}
+			if ( obsoleteAxes )
+				axisSystems.remove( removedCurve.scaleName);
+		}
 	/**
-	 * Draws each curve of the scatterplot
-	 * @param g graphics context used to perform the drawing.
+	 * Removes a curve definition from the receiver.
+	 * @param curve DhbScientificCurves.HistogramOrCurveDefinition
 	 */
-	private void paintCurves( Graphics g)
+	public boolean removeCurveNoUpdate( HistogramOrCurveDefinition curve)
 	{
-		Rectangle boundingBox = getBounds();
-		if ( ( width != boundingBox.width) || (height != boundingBox.height) )
-		{
-			width = boundingBox.width;
-			height = boundingBox.height;
-			computeDimensions( g);
-		}
-		g.clearRect( 0, 0, width, height);
-		AxisSystem axis = (AxisSystem) axisSystems.get( selectedAxis);
-		if ( secondaryAxis && selectedSecondaryAxis != null )
-		{
-			axis = (AxisSystem) axisSystems.get( selectedSecondaryAxis);
-		}
-		paintAxisLabels( g);
-//		g.clipRect( clipRectangle.x, clipRectangle.y, clipRectangle.width, clipRectangle.height);
 		for( int n = 0; n < curves.size(); n++)
 		{
 			ScaledCurve c = (ScaledCurve) curves.elementAt( n);
-			c.curve.plotCurve( g, (AxisSystem) axisSystems.get( c.scaleName));
+			if ( c.curve == curve )
+			{
+				removeCurveNoUpdate( n);
+				return true;
+			}	
 		}
-//		g.clipRect( 0, 0, width, height);
-		axis.drawAxes( g, tickmarkSize, true);
-		if ( secondaryAxis && selectedSecondaryAxis != null )
+		return false;
+	}
+		/**
+		 * Froces a redraw of the system. The clip rectangle is also recomputed.
+		 */
+		public void reset()
 		{
-			axis.drawSecondaryAxis( g, tickmarkSize, true);
+			width = 0;
+			repaint();
 		}
-	}
 	/**
-	 * Draws the axis label located near the bottom left corner (if any)
-	 * @param g graphics context used to perform the drawing.
-	 * @param label text of the axis label
+	 * Answers an array containing a sampling range to obtain enough points across the X axis.
+	 * @param sampling distance in pixels between the sampling points.
+	 * @return range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
 	 */
-	private void paintLeftBottomLabel( Graphics g, String label)
+	public double[] samplingRange ( int sampling)
 	{
-		Rectangle boundingBox = getBounds();
-		FontMetrics fm = g.getFontMetrics();
-		int x = Math.max( clipRectangle.x - fm.stringWidth( label), fm.getHeight());
-		g.drawString( label, x, boundingBox.height - fm.getDescent());
+		return xScale().samplingRange ( sampling);
 	}
-	/**
-	 * Draws the axis label located near the top left corner (if any)
-	 * @param g graphics context used to perform the drawing.
-	 * @param label text of the axis label
-	 */
-	private void paintLeftTopLabel( Graphics g, String label)
-	{
-		FontMetrics fm = g.getFontMetrics();
-		int x = Math.max( clipRectangle.x - fm.stringWidth( label), fm.getHeight());
-		g.drawString( label, x, clipRectangle.y - fm.getDescent());
-	}
-	/**
-	 * Draws the axis label located near the bottom right corner (if any)
-	 * @param g graphics context used to perform the drawing.
-	 * @param label text of the axis label
-	 */
-	private void paintRightBottomLabel( Graphics g, String label)
-	{
-		Rectangle boundingBox = getBounds();
-		FontMetrics fm = g.getFontMetrics();
-		int x = Math.min( boundingBox.width - fm.stringWidth( label) - fm.getHeight(), clipRectangle.x + clipRectangle.width);
-		g.drawString( label, x, boundingBox.height - fm.getDescent());
-	}
-	/**
-	 * Draws the axis label located near the top right corner (if any)
-	 * @param g graphics context used to perform the drawing.
-	 * @param label text of the axis label
-	 */
-	private void paintRightTopLabel( Graphics g, String label)
-	{
-		Rectangle boundingBox = getBounds();
-		FontMetrics fm = g.getFontMetrics();
-		int x = Math.min( boundingBox.width - fm.stringWidth( label) - fm.getHeight(), clipRectangle.x + clipRectangle.width);
-		g.drawString( label, x, clipRectangle.y - fm.getDescent());
-	}
-	/**
-	 * Finds the frame containing the scatterplot.
-	 */
-	private Frame parentFrame()
-	{
-		Component parent = getParent();
-		while ( parent.getParent() != null)
-			parent = parent.getParent();
-		return (Frame) parent;
-	}
-	/**
-	 * Removes a curve from the scatterplot. Curves are indexed in order
-	 * of insertion starting from 0. The scatterplot is painted anew.
-	 * @param index index of the curve to be removed.
-	 */
-	public void removeCurve( int index) throws ArrayIndexOutOfBoundsException
-	{
-		removeCurveNoUpdate( index);
-		reset();
-	}
-/**
- * Removes a given curve definition from the receiver and repaint it.
- * If the curve is not part of the receiver, nothing is done.
- * @param curve HistogramOrCurveDefinition		curve to be removed.
- */
-public void removeCurve( HistogramOrCurveDefinition curve)
-{
-	if ( removeCurveNoUpdate( curve))
-		reset();
-	return;
-}
-	/**
-	 * Removes a curve from the scatterplot. Curves are indexed in order
-	 * of insertion starting from 0. The scatterplot display is not updated.
-	 * @param index index of the curve to be removed.
-	 */
-	public void removeCurveNoUpdate( int index) throws ArrayIndexOutOfBoundsException
-	{
-		ScaledCurve removedCurve = (ScaledCurve) curves.elementAt( index);
-		curves.removeElementAt( index);
-		boolean obsoleteAxes = true;
-		for ( int n = 0; n < curves.size(); n++ )
-		{
-			if ( ( (ScaledCurve) curves.elementAt( n)).scaleName.equals( removedCurve.scaleName) )
-				obsoleteAxes = false;
-		}
-		if ( obsoleteAxes )
-			axisSystems.remove( removedCurve.scaleName);
-	}
-/**
- * Removes a curve definition from the receiver.
- * @param curve DhbScientificCurves.HistogramOrCurveDefinition
- */
-public boolean removeCurveNoUpdate( HistogramOrCurveDefinition curve)
-{
-	for( int n = 0; n < curves.size(); n++)
-	{
-		ScaledCurve c = (ScaledCurve) curves.elementAt( n);
-		if ( c.curve == curve )
-		{
-			removeCurveNoUpdate( n);
-			return true;
-		}	
-	}
-	return false;
-}
-	/**
-	 * Froces a redraw of the system. The clip rectangle is also recomputed.
-	 */
-	public void reset()
-	{
-		width = 0;
-		repaint();
-	}
-/**
- * Answers an array containing a sampling range to obtain enough points across the X axis.
- * @param sampling distance in pixels between the sampling points.
- * @return range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
- */
-public double[] samplingRange ( int sampling)
-{
-	return xScale().samplingRange ( sampling);
-}
 	/**
 	 * Defines the font used to draw the axis labels.
 	 * @param font the new font.
@@ -892,19 +892,19 @@ public double[] samplingRange ( int sampling)
 			throw new IllegalArgumentException( "Non-positive click tolerance: "+n);
 		clickTolerance = n;
 	}
-/**
- * Default parameter setting. This method is called by the constructor methods.
- */
-private void setDefaultSettings()
-{
-	addMouseListener( this);
-	addMouseMotionListener( this);
-	setOrientation( RIGHT, true);
-	setTickmarkSize( 5);
-	setClickTolerance( 2);
-	setSecondaryAxis( false);
-	axisSystems = new Hashtable();
-}
+	/**
+	 * Default parameter setting. This method is called by the constructor methods.
+	 */
+	private void setDefaultSettings()
+	{
+		addMouseListener( this);
+		addMouseMotionListener( this);
+		setOrientation( RIGHT, true);
+		setTickmarkSize( 5);
+		setClickTolerance( 2);
+		setSecondaryAxis( false);
+		axisSystems = new Hashtable();
+	}
 	/**
 	 * Defines the orientation of the axis system.
 	 * @param xAxis orientation of the x axis: LEFT, RIGHT, UP or DOWN.

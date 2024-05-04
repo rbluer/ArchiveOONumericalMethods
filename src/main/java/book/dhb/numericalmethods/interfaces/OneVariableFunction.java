@@ -9,9 +9,9 @@ package book.dhb.numericalmethods.interfaces;
 public interface OneVariableFunction
 {
 
-
-/**
- * Returns the value of the function for the specified variable value.
- */
-public double value( double x);
+	
+	/**
+	 * Returns the value of the function for the specified variable value.
+	 */
+	public double value( double x);
 }

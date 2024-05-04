@@ -10,8 +10,8 @@ package book.dhb.numericalmethods.interfaces;
 public interface ManyVariableFunction
 {
 
-/**
- * Returns the value of the function for the specified vector.
- */
-public double value ( double[] x);
+	/**
+	 * Returns the value of the function for the specified vector.
+	 */
+	public double value ( double[] x);
 }

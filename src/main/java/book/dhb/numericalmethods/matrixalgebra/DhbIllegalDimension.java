@@ -5,17 +5,17 @@ package book.dhb.numericalmethods.matrixalgebra;
  */
 public class DhbIllegalDimension extends Exception {
 
-/**
- * DhbIllegalDimension constructor comment.
- */
-public DhbIllegalDimension() {
-    super();
-}
-/**
- * DhbIllegalDimension constructor comment.
- * @param s java.lang.String
- */
-public DhbIllegalDimension(String s) {
-    super(s);
-}
+	/**
+	 * DhbIllegalDimension constructor comment.
+	 */
+	public DhbIllegalDimension() {
+	    super();
+	}
+	/**
+	 * DhbIllegalDimension constructor comment.
+	 * @param s java.lang.String
+	 */
+	public DhbIllegalDimension(String s) {
+	    super(s);
+	}
 }

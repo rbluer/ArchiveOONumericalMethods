@@ -9,22 +9,22 @@ import java.awt.Polygon;
 public class FilledDiamondSymbolDrawer extends AbstractSymbolDrawer
 {
 
-/**
- * Symbol ploting method.
- * @param g graphics context used to perform the drawing.
- * @param xPosition x position of symbol
- * @param yPosition y position of symbol
- * @param size of symbol
- */
-public void plotSymbol(java.awt.Graphics g, int x, int y, int size)
-{
-	int h = size / 2;
-	Polygon p = new Polygon();
-	p.addPoint( x, y - h);
-	p.addPoint( x - h, y);
-	p.addPoint( x, y + h);
-	p.addPoint( x + h, y);
-	p.addPoint( x, y - h);
-	g.fillPolygon( p);
-}
+	/**
+	 * Symbol ploting method.
+	 * @param g graphics context used to perform the drawing.
+	 * @param xPosition x position of symbol
+	 * @param yPosition y position of symbol
+	 * @param size of symbol
+	 */
+	public void plotSymbol(java.awt.Graphics g, int x, int y, int size)
+	{
+		int h = size / 2;
+		Polygon p = new Polygon();
+		p.addPoint( x, y - h);
+		p.addPoint( x - h, y);
+		p.addPoint( x, y + h);
+		p.addPoint( x + h, y);
+		p.addPoint( x, y - h);
+		g.fillPolygon( p);
+	}
 }

@@ -20,22 +20,22 @@ public final class OffsetDistributionFunction
     private double offset;
 
 
-/**
- * Create a new instance with given parameters.
- * @param p statistics.ProbabilityDensityFunction
- * @param x double
- */
-protected OffsetDistributionFunction ( ProbabilityDensityFunction p,
-                                                            double x)
-{
-    probabilityDensity = p;
-    offset = x;
-}
-/**
- * @return distribution function minus the offset.
- */
-public double value(double x)
-{
-    return probabilityDensity.distributionValue( x) - offset;
-}
+	/**
+	 * Create a new instance with given parameters.
+	 * @param p statistics.ProbabilityDensityFunction
+	 * @param x double
+	 */
+	protected OffsetDistributionFunction ( ProbabilityDensityFunction p,
+	                                                            double x)
+	{
+	    probabilityDensity = p;
+	    offset = x;
+	}
+	/**
+	 * @return distribution function minus the offset.
+	 */
+	public double value(double x)
+	{
+	    return probabilityDensity.distributionValue( x) - offset;
+	}
 }

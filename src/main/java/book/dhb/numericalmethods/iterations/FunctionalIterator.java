@@ -17,42 +17,42 @@ public abstract class FunctionalIterator extends IterativeProcess
      * Function for which the zero will be found.
      */
     protected OneVariableFunction f;
-/**
- * Generic constructor.
- * @param func OneVariableFunction
- * @param start double
- */
-public FunctionalIterator(OneVariableFunction func)
-{
-    setFunction( func);
-}
-/**
-* Returns the result (assuming convergence has been attained).
-*/
-public double getResult( )
-{
-    return result;
-}
-/**
- * @return double
- * @param epsilon double
- */
-public double relativePrecision( double epsilon)
-{
-    return relativePrecision( epsilon, Math.abs( result));
-}
-/**
- * @param func DhbInterfaces.OneVariableFunction
- */
-public void setFunction( OneVariableFunction func)
-{
-    f = func;
-}
-/**
- * @param x double
- */
-public void setInitialValue( double x)
-{
-    result = x;
-}
+	/**
+	 * Generic constructor.
+	 * @param func OneVariableFunction
+	 * @param start double
+	 */
+	public FunctionalIterator(OneVariableFunction func)
+	{
+	    setFunction( func);
+	}
+	/**
+	* Returns the result (assuming convergence has been attained).
+	*/
+	public double getResult( )
+	{
+	    return result;
+	}
+	/**
+	 * @return double
+	 * @param epsilon double
+	 */
+	public double relativePrecision( double epsilon)
+	{
+	    return relativePrecision( epsilon, Math.abs( result));
+	}
+	/**
+	 * @param func DhbInterfaces.OneVariableFunction
+	 */
+	public void setFunction( OneVariableFunction func)
+	{
+	    f = func;
+	}
+	/**
+	 * @param x double
+	 */
+	public void setInitialValue( double x)
+	{
+	    result = x;
+	}
 }
