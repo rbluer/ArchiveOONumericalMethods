@@ -537,7 +537,13 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 */
 	private boolean isLeftButtonEvent( MouseEvent e)
 	{
-		return ( e.getModifiers() & ( InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON1_MASK;
+		
+		int buttonmask = InputEvent.BUTTON1_DOWN_MASK | InputEvent.BUTTON2_DOWN_MASK | InputEvent.BUTTON3_DOWN_MASK;
+		int clickedmask = InputEvent.BUTTON1_DOWN_MASK;
+		
+		return ( e.getModifiersEx() & buttonmask ) == clickedmask;
+				
+//		return ( e.getModifiers() & ( InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON1_MASK;
 	}
 	/**
 	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
@@ -545,7 +551,13 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 */
 	private boolean isRightButtonEvent( MouseEvent e)
 	{
-		return ( e.getModifiers() & (InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON3_MASK;
+		
+		int buttonmask = InputEvent.BUTTON1_DOWN_MASK | InputEvent.BUTTON2_DOWN_MASK | InputEvent.BUTTON3_DOWN_MASK;
+		int clickedmask = InputEvent.BUTTON3_DOWN_MASK;
+		
+		return ( e.getModifiersEx() & buttonmask ) == clickedmask;
+		
+//		return ( e.getModifiers() & (InputEvent.BUTTON1_MASK | InputEvent.BUTTON2_MASK | InputEvent.BUTTON3_MASK)) == InputEvent.BUTTON3_MASK;
 	}
 	/**
 	 * mouseClicked method comment.
