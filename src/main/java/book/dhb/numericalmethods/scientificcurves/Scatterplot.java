@@ -45,12 +45,12 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 * The axes used to draw the curves. The key is the label of the Y axis.
 	 * @see AxisSystem
 	 */
-	private Hashtable axisSystems;
+	private Hashtable<String,AxisSystem> axisSystems;
 	/**
 	 * The list of the curves.
 	 * @see CurveDefinition
 	 */
-	private Vector curves;
+	private Vector<ScaledCurve> curves;
 	/**
 	 * Orientation of the x axis: LEFT, RIGHT, UP or DOWN.
 	 * Default is RIGHT.
@@ -152,7 +152,9 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 */
 	public Scatterplot()
 	{
-		curves = new Vector();
+		axisSystems = new Hashtable<>();
+		
+		curves = new Vector<>();
 		setDefaultSettings();
 	}
 	/**
@@ -166,7 +168,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 */
 	public Scatterplot( int size)
 	{
-		curves = new Vector(size);
+		curves = new Vector<>(size);
 		setDefaultSettings();
 	}
 	/**
@@ -243,7 +245,8 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		double[] range = curve.getRange();
 		ScaledCurve newCurve = new ScaledCurve( curve, name);
 		curves.addElement( newCurve);
-		if ( !axisSystems. containsKey( name) )
+		
+		if ( !axisSystems.containsKey( name) )
 		{
 			if ( range == null )
 				throw new IllegalArgumentException( "Cannot add curve definition without defined range on new axis system");
@@ -289,7 +292,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		}
 		else if ( range != null )
 		{
-			AxisSystem axis = (AxisSystem) axisSystems.get( name);
+			AxisSystem axis = axisSystems.get( name);
 			axis.xScale.addRange( range[0], range[1]);
 			axis.yScale.addRange( range[2], range[3]);
 		}
@@ -384,8 +387,8 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	{
 		for( int n = 0; n < curves.size(); n++)
 		{
-			ScaledCurve c = (ScaledCurve) curves.elementAt( n);
-			if ( c.curve.handleMouseClick( x, y, (AxisSystem) axisSystems.get( c.scaleName)))
+			ScaledCurve c = curves.elementAt( n);
+			if ( c.curve.handleMouseClick( x, y, axisSystems.get( c.scaleName)))
 				return true;
 		}
 		return false;
@@ -477,9 +480,9 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		x2 -= x1;
 		y2 -= y1;
 		clipRectangle = new Rectangle( x1, y1, x2, y2);
-		for ( Enumeration e = axisSystems.elements(); e.hasMoreElements();)
+		for ( Enumeration<AxisSystem> e = axisSystems.elements(); e.hasMoreElements(); )
 		{
-			AxisSystem axis = (AxisSystem) e.nextElement();
+			AxisSystem axis = e.nextElement();
 			axis.setOrigin( axisOrigin);
 			axis.setLengths( x2, y2);
 		}
@@ -500,9 +503,9 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		case RIGHT:
 		case LEFT:
 			x = 0;
-			for  (Enumeration e = axisSystems.elements(); e.hasMoreElements();)
+			for  (Enumeration<AxisSystem> e = axisSystems.elements(); e.hasMoreElements(); )
 			{
-				AxisSystem axis = (AxisSystem) e.nextElement();
+				AxisSystem axis = e.nextElement();
 				w = axis.yScale.labelWidth( fmt);
 				if ( w > x )
 					x = w;
@@ -737,7 +740,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	//		g.clipRect( clipRectangle.x, clipRectangle.y, clipRectangle.width, clipRectangle.height);
 			for( int n = 0; n < curves.size(); n++)
 			{
-				ScaledCurve c = (ScaledCurve) curves.elementAt( n);
+				ScaledCurve c = curves.elementAt( n);
 				c.curve.plotCurve( g, (AxisSystem) axisSystems.get( c.scaleName));
 			}
 	//		g.clipRect( 0, 0, width, height);
@@ -832,12 +835,12 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		 */
 		public void removeCurveNoUpdate( int index) throws ArrayIndexOutOfBoundsException
 		{
-			ScaledCurve removedCurve = (ScaledCurve) curves.elementAt( index);
+			ScaledCurve removedCurve = curves.elementAt( index);
 			curves.removeElementAt( index);
 			boolean obsoleteAxes = true;
 			for ( int n = 0; n < curves.size(); n++ )
 			{
-				if ( ( (ScaledCurve) curves.elementAt( n)).scaleName.equals( removedCurve.scaleName) )
+				if ( curves.elementAt( n ).scaleName.equals( removedCurve.scaleName) )
 					obsoleteAxes = false;
 			}
 			if ( obsoleteAxes )
@@ -851,7 +854,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	{
 		for( int n = 0; n < curves.size(); n++)
 		{
-			ScaledCurve c = (ScaledCurve) curves.elementAt( n);
+			ScaledCurve c = curves.elementAt( n);
 			if ( c.curve == curve )
 			{
 				removeCurveNoUpdate( n);
@@ -907,7 +910,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		setTickmarkSize( 5);
 		setClickTolerance( 2);
 		setSecondaryAxis( false);
-		axisSystems = new Hashtable();
+		axisSystems = new Hashtable<>();
 	}
 	/**
 	 * Defines the orientation of the axis system.
@@ -971,9 +974,9 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	{
 		boolean startPointMet = false;
 		String newAxis = null;
-		for( Enumeration keys = axisSystems.keys(); keys.hasMoreElements(); )
+		for( Enumeration<String> keys = axisSystems.keys(); keys.hasMoreElements(); )
 		{
-			String nextName = (String) keys.nextElement();
+			String nextName = keys.nextElement();
 			if ( selectedAxis.equals( nextName) )
 				startPointMet = true;
 			else if ( !selectedSecondaryAxis.equals( nextName) )
@@ -1000,9 +1003,9 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	{
 		boolean startPointMet = false;
 		String newAxis = null;
-		for( Enumeration keys = axisSystems.keys(); keys.hasMoreElements(); )
+		for( Enumeration<String> keys = axisSystems.keys(); keys.hasMoreElements(); )
 		{
-			String nextName = (String) keys.nextElement();
+			String nextName = keys.nextElement();
 			if ( selectedSecondaryAxis.equals( nextName) )
 				startPointMet = true;
 			else if ( !selectedAxis.equals( nextName) )
@@ -1045,12 +1048,12 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		String answer;
 		for( int n = 0; n < curves.size(); n++)
 		{
-			ScaledCurve c = (ScaledCurve) curves.elementAt( n);
-			answer = c.curve.trackingWindowText(x, y, (AxisSystem) axisSystems.get( c.scaleName));
+			ScaledCurve c = curves.elementAt( n);
+			answer = c.curve.trackingWindowText(x, y, axisSystems.get( c.scaleName));
 			if ( answer != null)
 				return answer;
 		}
-		AxisSystem axis = (AxisSystem) axisSystems.get( selectedAxis);
+		AxisSystem axis = axisSystems.get( selectedAxis);
 		double[] v = axis.pointToCoordinates( x, y);
 		return "x: "+v[0]+"\ny: "+v[1];
 	}
@@ -1062,8 +1065,8 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	{
 		for ( int n = 0; n < curves.size(); n++)
 		{
-			ScaledCurve c = (ScaledCurve) curves.elementAt( n);
-			AxisSystem axis = (AxisSystem) axisSystems.get( c.scaleName);
+			ScaledCurve c = curves.elementAt( n);
+			AxisSystem axis = axisSystems.get( c.scaleName);
 			double[] range = c.curve.getRange();
 			if ( range != null )
 			{
@@ -1083,8 +1086,8 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 */
 	private PlottingScale xScale()
 	{
-		Enumeration e = axisSystems.elements();
-		AxisSystem firstAxis = (AxisSystem) e.nextElement();
+		Enumeration<AxisSystem> e = axisSystems.elements();
+		AxisSystem firstAxis = e.nextElement();
 		return firstAxis.xScale;
 	}
 }

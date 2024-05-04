@@ -233,14 +233,14 @@ public class PolynomialFunction implements OneVariableFunction
 	    PolynomialFunction p = this;
 	    NewtonZeroFinder rootFinder = new NewtonZeroFinder( this, dp, start);
 	    rootFinder.setDesiredPrecision( desiredPrecision);
-	    Vector rootCollection = new Vector( degree());
+	    Vector<Double> rootCollection = new Vector<>( degree());
 	    while ( true)
 	    {
 	        rootFinder.evaluate();
 	        if ( !rootFinder.hasConverged() )
 	            break;
 	        double r = rootFinder.getResult();
-	        rootCollection.addElement( new Double( r));
+	        rootCollection.addElement( Double.valueOf( r )) ;
 	        p = p.deflate( r);
 	        if ( p.degree() == 0 )
 	            break;
@@ -249,11 +249,11 @@ public class PolynomialFunction implements OneVariableFunction
 	                catch ( IllegalArgumentException e) {};
 	    }
 	    double[] roots = new double[ rootCollection.size()];
-	    Enumeration e = rootCollection.elements();
+	    Enumeration<Double> e = rootCollection.elements();
 	    int n = 0;
 	    while ( e.hasMoreElements() )
 	    {
-	        roots[n++] = ( (Double) e.nextElement()).doubleValue();
+	        roots[n++] = e.nextElement().doubleValue();
 	    }
 	    return roots;
 	}

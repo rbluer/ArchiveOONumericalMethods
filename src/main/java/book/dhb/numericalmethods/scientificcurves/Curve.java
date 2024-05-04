@@ -15,7 +15,7 @@ public class Curve implements PointSeries
     /**
      * Vector containing the points.
      */
-    protected Vector points;
+    protected Vector<Double[]> points;
 
 
 	/**
@@ -23,7 +23,7 @@ public class Curve implements PointSeries
 	 */
 	public Curve()
 	{
-	    points = new Vector();
+	    points = new Vector<Double[]>();
 	}
 	/**
 	 * Adds a point to the curve defined by its 2-dimensional coordinates.
@@ -32,7 +32,7 @@ public class Curve implements PointSeries
 	 */
 	public void addPoint( double x, double y)
 	{
-	    double point[] = new double[2];
+	    Double point[] = new Double[2];
 	    point[0] = x;
 	    point[1] = y;
 	    points.addElement( point);
@@ -58,7 +58,7 @@ public class Curve implements PointSeries
 	 */
 	public double xValueAt( int index)
 	{
-	    return ((double[]) points.elementAt( index))[0];
+	    return points.elementAt( index)[0];
 	}
 	/**
 	 * @return double the y coordinate of the point at the given index.
@@ -66,6 +66,6 @@ public class Curve implements PointSeries
 	 */
 	public double yValueAt( int index)
 	{
-	    return ((double[]) points.elementAt( index))[1];
+	    return points.elementAt( index)[1];
 	}
 }

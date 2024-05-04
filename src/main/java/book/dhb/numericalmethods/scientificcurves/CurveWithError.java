@@ -36,7 +36,7 @@ public class CurveWithError extends Curve implements PointSeriesWithErrors {
 	 */
 	public void addWeightedPoint(double x, double y, double weight)
 	{
-		double point[] = new double[3];
+		Double point[] = new Double[3];
 		point[0] = x;
 		point[1] = y;
 		point[2] = weight;
@@ -47,6 +47,6 @@ public class CurveWithError extends Curve implements PointSeriesWithErrors {
 	 */
 	public double weightAt(int index)
 	{
-		return ((double[]) points.elementAt( index))[3];
+		return points.elementAt( index )[3];
 	}
 }

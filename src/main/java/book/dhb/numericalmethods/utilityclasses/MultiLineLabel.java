@@ -22,7 +22,7 @@ public class MultiLineLabel extends Canvas
 	/**
 	 * The lines containing the text to display. Each element is a string.
 	 */
-	private Vector lines;
+	private Vector<String> lines;
 	/**
 	 * The dimension of the receiver (space needed to display all lines).
 	 */
@@ -60,12 +60,12 @@ public class MultiLineLabel extends Canvas
 	 * Appends a singe line at the end of the label
 	 * @param text the text displayed on the new line (a String).
 	 */
-	public void appendLine( String text)
+	public void appendLine( String text )
 	{
 		FontMetrics fm = getFontMetrics( getFont());
 		int w = fm.stringWidth( text) + 2 * margin.width;
 		size = new Dimension( Math.max( size.width, w), size.height + fm.getHeight());
-		lines.addElement( text);
+		lines.addElement( text );
 	}
    /** 
 	 * Returns the minimumSize size of this component.
@@ -152,7 +152,7 @@ public class MultiLineLabel extends Canvas
 	 */
 	public void resetText()
 	{
-		lines = new Vector();
+		lines = new Vector<>();
 		size = new Dimension( 4, 4);
 	}
    /** 
