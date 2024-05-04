@@ -1,12 +1,12 @@
 package book.dhb.numericalmethods.functionevaluation;
 
-
-import book.dhb.numericalmethods.statistics.ProbabilityDensityFunction;
 /**
  * Normal distribution, a.k.a. Gaussian distribution.
  * 
+ * 
+ * NOTE: Notice this class is not used.
  */
-public final class NormalDistribution extends ProbabilityDensityFunction
+public final class ErrorFunction 
 {
 	private static double baseNorm = Math.sqrt( 2 * Math.PI);
 	/**
@@ -42,4 +42,5 @@ public final class NormalDistribution extends ProbabilityDensityFunction
 	{
 		return Math.exp( -0.5 * x * x) / baseNorm;
 	}
+
 }
