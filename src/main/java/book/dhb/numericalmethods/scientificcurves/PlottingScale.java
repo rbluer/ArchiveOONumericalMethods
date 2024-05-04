@@ -4,8 +4,9 @@ package book.dhb.numericalmethods.scientificcurves;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.text.DecimalFormat;
 
-import book.dhb.numericalmethods.GUIUtilityClasses.DhbFloatingFormat;
+
 /**
  * A PlottingScale defines a scale used to convert double values
  * into pixels and back.
@@ -63,7 +64,12 @@ public class PlottingScale
 	/**
 	 * Format used to print tick mark labels.
 	 */
-	private DhbFloatingFormat format = new DhbFloatingFormat();
+	private DecimalFormat format = new DecimalFormat( "#,##0.0000" );
+	
+	
+	// NOTE: The following package does not exist:
+//	import book.dhb.numericalmethods.GUIUtilityClasses.DhbFloatingFormat;
+//	private DhbFloatingFormat format = new DhbFloatingFormat();
 	/**
 	 * Scale values.
 	 */
