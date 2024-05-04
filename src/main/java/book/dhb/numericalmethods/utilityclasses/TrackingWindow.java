@@ -14,6 +14,8 @@ import java.awt.Window;
 
 public class TrackingWindow extends Window
 {
+	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * The TextComponent contain the text to display.
 	 */

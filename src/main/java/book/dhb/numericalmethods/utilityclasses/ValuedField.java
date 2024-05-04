@@ -8,6 +8,8 @@ import java.awt.TextField;
  */
 public abstract class ValuedField extends TextField
 {
+	private static final long serialVersionUID = 1L;
+	
 	protected boolean minimumDefined = false;
 	protected boolean maximumDefined = false;
 

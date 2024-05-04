@@ -10,6 +10,8 @@ package book.dhb.numericalmethods.utilityclasses;
 */
 public class FloatField extends ValuedField
 {
+	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * An optional minimum for the field's value.
 	 */

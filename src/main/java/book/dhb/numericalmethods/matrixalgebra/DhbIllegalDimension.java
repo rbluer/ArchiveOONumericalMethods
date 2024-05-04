@@ -4,6 +4,7 @@ package book.dhb.numericalmethods.matrixalgebra;
  * @author Didier H. Besset
  */
 public class DhbIllegalDimension extends Exception {
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * DhbIllegalDimension constructor comment.

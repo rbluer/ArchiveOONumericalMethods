@@ -17,6 +17,8 @@ import java.util.Vector;
 
 public class MultiLineLabel extends Canvas
 {
+	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * The lines containing the text to display. Each element is a string.
 	 */

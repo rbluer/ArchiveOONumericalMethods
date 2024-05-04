@@ -7,6 +7,8 @@ package book.dhb.numericalmethods.utilityclasses;
  */
 public class IntegerField extends ValuedField
 {
+	private static final long serialVersionUID = 1L;
+	
 	private int minimum;
 	private int maximum;
 

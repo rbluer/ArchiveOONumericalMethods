@@ -40,6 +40,7 @@ import book.dhb.numericalmethods.utilityclasses.TrackingWindow;
  */
 public class Scatterplot extends Canvas implements MouseListener, MouseMotionListener
 {
+	private static final long serialVersionUID = 1L;
 	/**
 	 * The axes used to draw the curves. The key is the label of the Y axis.
 	 * @see AxisSystem
