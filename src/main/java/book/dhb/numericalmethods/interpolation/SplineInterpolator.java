@@ -92,7 +92,7 @@ public class SplineInterpolator extends NewtonInterpolator
 	}
 	/**
 	 * Computes the interpolated y value for a given x value.
-	 * @param aNumber x value.
+	 * @param x double value.
 	 * @return interpolated y value.
 	 */
 	public double value(double x)

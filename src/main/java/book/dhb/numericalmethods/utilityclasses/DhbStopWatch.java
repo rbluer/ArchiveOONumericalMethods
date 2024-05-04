@@ -29,6 +29,7 @@ public class DhbStopWatch
 	}
 	/**
 	 * Starts the stop watch.
+	 * @return long
 	 */
 	public long error ( )
 	{

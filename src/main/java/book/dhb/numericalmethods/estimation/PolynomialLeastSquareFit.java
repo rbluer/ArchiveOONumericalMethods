@@ -16,6 +16,7 @@ public class PolynomialLeastSquareFit
     double[] systemConstants;
 	/**
 	 * Constructor method.
+	 * @param n int
 	 */
 	public PolynomialLeastSquareFit( int n)
 	{
@@ -79,7 +80,7 @@ public class PolynomialLeastSquareFit
 	    }
 	}
 	/**
-	 * @return DhbEstimation.EstimatedPolynomial
+	 * @return EstimatedPolynomial
 	 */
 	public EstimatedPolynomial evaluate()
 	{
@@ -100,6 +101,9 @@ public class PolynomialLeastSquareFit
 	            catch ( DhbNonSymmetricComponents ex) {};
 	     return null;
 	}
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 	    for ( int i = 0; i < systemConstants.length; i++ )

@@ -116,7 +116,7 @@ public abstract class IterativeProcess
 	/**
 	 * Defines the desired precision.
 	 * @param prec double
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException non-positive precision
 	 */
 	public void setDesiredPrecision( double prec )
 	                                    throws IllegalArgumentException

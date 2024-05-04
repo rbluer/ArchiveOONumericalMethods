@@ -74,7 +74,13 @@ public class PlottingScale
 	 * Scale values.
 	 */
 	private static final double scales[] = {1.25, 2, 2.5, 4, 5, 7.5, 8, 10};
+	/**
+	 * semi-integer scale values
+	 */
 	private static final double semiIntegerScales[] = {2, 2.5, 4, 5, 7.5, 8, 10};
+	/*
+	 * integer scale values
+	 */
 	private static final double integerScales[] = {2, 4, 5, 8, 10};
 
 
@@ -93,8 +99,9 @@ public class PlottingScale
 	/**
 	 * Extends the range of the scale. The range is modified only when the
 	 * new parameters are extending beyond the old range.
-	 * @param from possible minimum value of new range.
-	 * @param to possible maximum value of new range.
+	 * @param from double possible minimum value of new range.
+	 * @param to double possible maximum value of new range.
+	 * @throws IllegalArgumentException error if cannot set the range
 	 */
 	public void addRange( double from, double to) throws IllegalArgumentException
 	{
@@ -142,23 +149,23 @@ public class PlottingScale
 		scaleRange = tickmarkStep * Math.ceil( ( maximum - scaleMinimum) / tickmarkStep);
 	}
 	/**
-	 * Draws an horixontal axis with the current scale.
-	 * @param g the graphic context used to perform all drawing command.
-	 * @param origin a point in pixel where the axis must begin.
-	 * @param tickMarkSize size of the tick marks in pixel
-	 * @param bottom flag indicating whether the axis is drawn at the bottom of the pane.
+	 * Draws an horizontal axis with the current scale.
+	 * @param g Graphics the graphic context used to perform all drawing command.
+	 * @param origin Point a point in pixel where the axis must begin.
+	 * @param tickmarkSize int size of the tick marks in pixel
+	 * @param bottom boolean flag indicating whether the axis is drawn at the bottom of the pane.
 	 */
 	public void drawHorizontalAxis( Graphics g, Point origin, int tickmarkSize, boolean bottom)
 	{
 		drawHorizontalAxis( g, origin, tickmarkSize, bottom, true);
 	}
 	/**
-	 * Draws an horixontal axis with the current scale.
-	 * @param g the graphic context used to perform all drawing command.
-	 * @param origin a point in pixel where the axis must begin.
-	 * @param tickMarkSize size of the tick marks in pixel
-	 * @param bottom flag indicating whether the axis is drawn at the bottom of the pane.
-	 * @param labels flag indicating whether tickmark labels mustbe drawn.
+	 * Draws an horizontal axis with the current scale.
+	 * @param g Graphics the graphic context used to perform all drawing command.
+	 * @param origin Point a point in pixel where the axis must begin.
+	 * @param tickmarkSize int size of the tick marks in pixel
+	 * @param bottom boolean flag indicating whether the axis is drawn at the bottom of the pane.
+	 * @param labels boolean flag indicating whether tickmark labels must be drawn.
 	 */
 	public void drawHorizontalAxis( Graphics g, Point origin, int tickmarkSize, boolean bottom, boolean labels)
 	{
@@ -209,10 +216,10 @@ public class PlottingScale
 	}
 	/**
 	 * Draws an vertical axis with the current scale.
-	 * @param g the graphic context used to perform all drawing command.
-	 * @param origin a point in pixel where the axis must begin.
-	 * @param tickMarkSize size of the tick marks in pixel
-	 * @param left flag indicating whether the axis is drawn on the left of the pane.
+	 * @param g Graphics the graphic context used to perform all drawing command.
+	 * @param origin Point a point in pixel where the axis must begin.
+	 * @param tickmarkSize int size of the tick marks in pixel
+	 * @param left boolean flag indicating whether the axis is drawn on the left of the pane.
 	 */
 	public void drawVerticalAxis( Graphics g, Point origin, int tickmarkSize, boolean left)
 	{
@@ -220,11 +227,11 @@ public class PlottingScale
 	}
 	/**
 	 * Draws an vertical axis with the current scale.
-	 * @param g the graphic context used to perform all drawing command.
-	 * @param origin a point in pixel where the axis must begin.
-	 * @param tickMarkSize size of the tick marks in pixel
-	 * @param left flag indicating whether the axis is drawn on the left of the pane.
-	 * @param labels flag indicating whether tickmark labels mustbe drawn.
+	 * @param g Graphics the graphic context used to perform all drawing command.
+	 * @param origin Point a point in pixel where the axis must begin.
+	 * @param tickmarkSize int size of the tick marks in pixel
+	 * @param left boolean flag indicating whether the axis is drawn on the left of the pane.
+	 * @param labels boolean flag indicating whether tickmark labels must be drawn.
 	 */
 	public void drawVerticalAxis( Graphics g, Point origin, int tickmarkSize, boolean left, boolean labels)
 	{
@@ -295,7 +302,8 @@ public class PlottingScale
 	}
 	/**
 	 * Returns the width of the largest tickmark label displayed in the axis.
-	 * @return width of the largest tickmark label.
+	 * @param fm FontMetrics
+	 * @return width int of the largest tickmark label.
 	 */
 	public int labelWidth( FontMetrics fm)
 	{
@@ -310,9 +318,9 @@ public class PlottingScale
 	}
 	/**
 	 * Returns the value corresponding to a position specified in pixel.
-	 * @param p the pixel position.
-	 * @param origin origin of the axis in pixel.
-	 * @return value reading of the pixel position.
+	 * @param p int the pixel position.
+	 * @param origin int origin of the axis in pixel.
+	 * @return value double reading of the pixel position.
 	 */
 	public double pixelsToValue( int p, int origin)
 	{
@@ -329,9 +337,9 @@ public class PlottingScale
 	}
 	/**
 	 * Round the specified value upward to the next scale value.
-	 * @param the value to be rounded.
-	 * @param a fag specified whether integer scale are used, otherwise double scale is used.
-	 * @return a number rounded upward to the next scale value.
+	 * @param value double the value to be rounded.
+	 * @param integerValued boolean a fag specified whether integer scale are used, otherwise double scale is used.
+	 * @return double a number rounded upward to the next scale value.
 	 */
 	public static double roundToScale( double value, boolean integerValued)
 	{
@@ -360,8 +368,8 @@ public class PlottingScale
 	}
 	/**
 	 * Answers an array containing a sampling range to obtain enough points across the X axis.
-	 * @param sampling distance in pixels between the sampling points.
-	 * @return range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
+	 * @param sampling int distance in pixels between the sampling points.
+	 * @return double[] range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
 	 */
 	public double[] samplingRange ( int sampling)
 	{
@@ -373,7 +381,8 @@ public class PlottingScale
 	}
 	/**
 	 * Defines the axis length.
-	 * @param length of the axis in pixel (must be positive).
+	 * @param length int of the axis in pixel (must be positive).
+	 * @throws IllegalArgumentException non-positive axis length
 	 */
 	public void setAxisLength( int length) throws IllegalArgumentException
 	{
@@ -391,7 +400,7 @@ public class PlottingScale
 	}
 	/**
 	 * Defines the scale to have integer value tickmarks or not.
-	 * @param integerScale flag indicating whether tick marks should be rounded to integer values.
+	 * @param integerScale boolean flag indicating whether tick marks should be rounded to integer values.
 	 */
 	public void setIntegerScale( boolean integerScale)
 	{
@@ -406,8 +415,8 @@ public class PlottingScale
 	}
 	/**
 	 * Defines the range of the scale.
-	 * @param from minimum value.
-	 * @param to maximum value.
+	 * @param from double minimum value.
+	 * @param to double maximum value.
 	 */
 	public void setRange( double from, double to) throws IllegalArgumentException
 	{
@@ -420,7 +429,7 @@ public class PlottingScale
 	/**
 	 * Defines the minimum spacing between tickmarks. This number should be
 	 * such that tickmark labels do not overlap on each other.
-	 * @param spacing minimum spacing between tickmarks in pixels.
+	 * @param spacing int minimum spacing between tickmarks in pixels.
 	 */
 	public void setSpacing( int spacing) throws IllegalArgumentException
 	{
@@ -438,8 +447,8 @@ public class PlottingScale
 	}
 	/**
 	 * Returns the pixel position corresponding to a given value.
-	 * @param x the value to be positioned on the axis.
-	 * @param origin origin of the axis in pixel.
+	 * @param x double the value to be positioned on the axis.
+	 * @param origin int origin of the axis in pixel.
 	 * @return the pixel position.
 	 */
 	public int valueToPixels( double x, int origin)

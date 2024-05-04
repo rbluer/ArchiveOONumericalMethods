@@ -1,8 +1,11 @@
-package book.dhb.numericalmethods.InheritanceCheck;
+package book.dhb.numericalmethods.inheritancecheck;
 
+/**
+ * My class
+ */
 public class MyClass {
 	/**
-	 * 
+	 * constructor
 	 */
 	public MyClass() {
 	    super();

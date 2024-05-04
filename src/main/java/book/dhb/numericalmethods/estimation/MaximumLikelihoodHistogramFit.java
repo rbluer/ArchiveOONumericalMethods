@@ -24,8 +24,8 @@ public class MaximumLikelihoodHistogramFit extends LeastSquareFit
 	    private double countError;
 	/**
 	 * Constructor method.
-	 * @param pts Histogram
-	 * @param f DhbInterfaces.ParametrizedOneVariableFunction
+	 * @param hist Histogram
+	 * @param f ParametrizedOneVariableFunction
 	 */
 	public MaximumLikelihoodHistogramFit(Histogram hist,
 	                                        ProbabilityDensityFunction f)
@@ -35,7 +35,7 @@ public class MaximumLikelihoodHistogramFit extends LeastSquareFit
 	    initializeSystem( f.parameters().length);
 	}
 	/**
-	 * @param wp DhbEstimation.WeightedPoint
+	 * @param wp WeightedPoint
 	 */
 	protected void accumulate( WeightedPoint wp)
 	{
@@ -75,6 +75,7 @@ public class MaximumLikelihoodHistogramFit extends LeastSquareFit
 	 * Computes the changes in the parameters:
 	 * since the normalization is not fitted, the change to the
 	 * normalization (last parameter) is set to zero.
+	 * @return double[]
 	 */
 	protected double[] computeChanges()
 	{
@@ -107,6 +108,9 @@ public class MaximumLikelihoodHistogramFit extends LeastSquareFit
 	    count = Math.sqrt( numerator / denominator);
 	    countError = Math.sqrt( 0.25 * numerator / count);
 	}
+	/**
+	 * 
+	 */
 	public void finalizeIterations()
 	{
 	    computeNormalization();
@@ -127,13 +131,16 @@ public class MaximumLikelihoodHistogramFit extends LeastSquareFit
 	{
 	    return (ScaledProbabilityDensityFunction) getResult();
 	}
+	/**
+	 * 
+	 */
 	public void initializeIterations()
 	{
 	    getDistribution().setCount( 1);
 	    count = histogram.totalCount();
 	}
 	/**
-	 * @return DhbEstimation.WeightedPoint n-th weighted data point
+	 * @return WeightedPoint n-th weighted data point
 	 * @param n int
 	 */
 	protected WeightedPoint weightedPointAt( int n)

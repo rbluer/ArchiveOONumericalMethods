@@ -27,13 +27,12 @@ public abstract class OptimizingPoint
 	    value = f.value(x);
 	}
 	/**
-	 * @return boolean    true if the receiver is "better" than 
-	 *                                                the supplied point
-	 * @param point OptimizingPoint
+	 * @return boolean  true if the receiver is "better" than the supplied point
+	 * @param entity OptimizingPoint
 	 */
 	public abstract boolean betterThan( OptimizingPoint entity);
 	/**
-	 * @return double    the receiver's position
+	 * @return double  the receiver's position
 	 */
 	public double getPosition()
 	{

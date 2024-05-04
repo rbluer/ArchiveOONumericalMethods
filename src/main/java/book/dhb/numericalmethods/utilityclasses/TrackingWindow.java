@@ -40,7 +40,7 @@ public class TrackingWindow extends Window
 
 	/**
 	 * Constructs the window with a given parent
-	 * @param parent the component requesting tracking display.
+	 * @param parent Frame the component requesting tracking display.
 	 */
 	public TrackingWindow( Frame parent)
 	{
@@ -51,6 +51,7 @@ public class TrackingWindow extends Window
 	}
    /** 
 	 * Defines the alignment of the text.
+	 * @param align int
 	 */
 	public void setAlignment( int align)
 	{
@@ -58,8 +59,8 @@ public class TrackingWindow extends Window
 	}
 	/**
 	 * Defines the offset applied to position when displaying the receiver.
-	 * @param x offset in direction x.
-	 * @param y offset in direction y.
+	 * @param x int offset in direction x.
+	 * @param y int offset in direction y.
 	 */
 	public void setOffset( int x, int y)
 	{

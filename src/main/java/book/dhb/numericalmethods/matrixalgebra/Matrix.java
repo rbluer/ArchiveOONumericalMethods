@@ -29,7 +29,7 @@ public class Matrix
 	 * Creates a null matrix of given dimensions.
 	 * @param n int    number of rows
 	 * @param m int    number of columns
-	 * @exception NegativeArraySizeException
+	 * @exception NegativeArraySizeException parameters n and m cannot be zero or negative
 	 */
 	public Matrix ( int n, int m) throws NegativeArraySizeException
 	{
@@ -59,8 +59,7 @@ public class Matrix
 	    }    
 	}
 	/**
-	 * @return Matrix        sum of the receiver with the
-	 *                                                    supplied matrix.
+	 * @return Matrix    sum of the receiver with the supplied matrix.
 	 * @param a Matrix
 	 * @exception DhbIllegalDimension if the supplied matrix
 	 *                                    does not have the same dimensions.
@@ -120,7 +119,7 @@ public class Matrix
 	    return components[n][m];
 	}
 	/**
-	 * @return double
+	 * @return double[][]
 	 * @exception DhbIllegalDimension if the supplied 
 	 *                                                matrix is not square.
 	 */
@@ -196,7 +195,7 @@ public class Matrix
 	 * Computes the product of the matrix with a vector.
 	 * @return DhbVector
 	 * @param v DhbVector
-	 * @throws DhbIllegalDimension
+	 * @throws DhbIllegalDimension Product error when matrix cannot be multiplied by the vector with the dimension
 	 */
 	public DhbVector product ( DhbVector v) throws DhbIllegalDimension
 	{

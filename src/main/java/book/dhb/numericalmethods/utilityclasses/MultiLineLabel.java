@@ -157,6 +157,7 @@ public class MultiLineLabel extends Canvas
 	}
    /** 
 	 * Defines the alignment of the text.
+	 * @param align int
 	 */
 	public void setAlignment( int align)
 	{

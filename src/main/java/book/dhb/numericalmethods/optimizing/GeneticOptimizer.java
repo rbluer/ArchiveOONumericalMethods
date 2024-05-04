@@ -108,5 +108,8 @@ public abstract class GeneticOptimizer extends MultiVariableOptimizer
 	 * @return double[]    integral fitness scale.
 	 */
 	public abstract double[] randomScale();
+	/**
+	 * reset
+	 */
 	public abstract void reset();
 }

@@ -840,27 +840,29 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 			reset();
 		return;
 	}
-		/**
-		 * Removes a curve from the scatterplot. Curves are indexed in order
-		 * of insertion starting from 0. The scatterplot display is not updated.
-		 * @param index index of the curve to be removed.
-		 */
-		public void removeCurveNoUpdate( int index) throws ArrayIndexOutOfBoundsException
+	/**
+	 * Removes a curve from the scatterplot. Curves are indexed in order
+	 * of insertion starting from 0. The scatterplot display is not updated.
+	 * @param index int index of the curve to be removed.
+	 * @throws ArrayIndexOutOfBoundsException array index is out of bounds
+	 */
+	public void removeCurveNoUpdate( int index) throws ArrayIndexOutOfBoundsException
+	{
+		ScaledCurve removedCurve = curves.elementAt( index);
+		curves.removeElementAt( index);
+		boolean obsoleteAxes = true;
+		for ( int n = 0; n < curves.size(); n++ )
 		{
-			ScaledCurve removedCurve = curves.elementAt( index);
-			curves.removeElementAt( index);
-			boolean obsoleteAxes = true;
-			for ( int n = 0; n < curves.size(); n++ )
-			{
-				if ( curves.elementAt( n ).scaleName.equals( removedCurve.scaleName) )
-					obsoleteAxes = false;
-			}
-			if ( obsoleteAxes )
-				axisSystems.remove( removedCurve.scaleName);
+			if ( curves.elementAt( n ).scaleName.equals( removedCurve.scaleName) )
+				obsoleteAxes = false;
 		}
+		if ( obsoleteAxes )
+			axisSystems.remove( removedCurve.scaleName);
+	}
 	/**
 	 * Removes a curve definition from the receiver.
-	 * @param curve DhbScientificCurves.HistogramOrCurveDefinition
+	 * @param curve HistogramOrCurveDefinition
+	 * @return boolean
 	 */
 	public boolean removeCurveNoUpdate( HistogramOrCurveDefinition curve)
 	{
@@ -885,7 +887,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 		}
 	/**
 	 * Answers an array containing a sampling range to obtain enough points across the X axis.
-	 * @param sampling distance in pixels between the sampling points.
+	 * @param sampling int distance in pixels between the sampling points.
 	 * @return range an array of 3 doubles; range[0] minimum x value, range[1] maximum x value, range[2] x step.
 	 */
 	public double[] samplingRange ( int sampling)
@@ -894,14 +896,14 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	}
 	/**
 	 * Defines the font used to draw the axis labels.
-	 * @param font the new font.
+	 * @param font Font the new font.
 	 */
 	public void setAxisLabelFont( Font font)
 	{
 		axisLabelFont = font;
 	}
 	/**
-	 * Defines the width or height of the sentitive area around the y axes
+	 * Defines the width or height of the sensitive area around the y axes
 	 * (primary or secondary).
 	 * @param n width or height in pixels.
 	 */
@@ -926,8 +928,8 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	}
 	/**
 	 * Defines the orientation of the axis system.
-	 * @param xAxis orientation of the x axis: LEFT, RIGHT, UP or DOWN.
-	 * @param cartesian true if the y axis makes a positive angle with the x axis.
+	 * @param xAxis int orientation of the x axis: LEFT, RIGHT, UP or DOWN.
+	 * @param cartesian boolean true if the y axis makes a positive angle with the x axis.
 	 */
 	public void setOrientation( int xAxis, boolean cartesian)
 	{
@@ -936,7 +938,7 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	}
 	/**
 	 * Defines whether or not a secondary y axis is drawn at the end of the x axis.
-	 * @param secondary	true if a secondary must be drawn.
+	 * @param secondary boolean	true if a secondary must be drawn.
 	 */
 	public void setSecondaryAxis( boolean secondary)
 	{

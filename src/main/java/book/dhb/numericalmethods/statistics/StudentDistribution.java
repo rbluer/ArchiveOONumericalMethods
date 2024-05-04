@@ -31,7 +31,7 @@ public final class StudentDistribution
 	/**
 	 * Constructor method.
 	 * @param n int    degree of freedom
-	 * @exception java.lang.IllegalArgumentException\
+	 * @exception java.lang.IllegalArgumentException
 	 *                when the specified degree of freedom is non-positive.
 	 */
 	public StudentDistribution( int n) throws IllegalArgumentException
@@ -147,7 +147,7 @@ public final class StudentDistribution
 	}
 	/**
 	 * This distribution cannot be fitted because the parameter is an integer.
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

@@ -47,8 +47,8 @@ public final class NormalDistribution
 	/**
 	 * Defines a Normal distribution with known average
 	 *                                            and standard deviation.
-	 * @param average of the distribution
-	 * @param standard deviation of the distribution
+	 * @param average double Average of the distribution
+	 * @param standardDeviation double standard deviation of the distribution
 	 * @exception java.lang.IllegalArgumentException
 	 *                        if the standard deviation is non-positive
 	 */
@@ -148,7 +148,7 @@ public final class NormalDistribution
 	    mu = average;
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{
@@ -156,7 +156,7 @@ public final class NormalDistribution
 	    setStandardDeviation( params[1]);
 	}
 	/**
-	 * @param average double
+	 * @param standardDeviation double
 	 */
 	public void setStandardDeviation( double standardDeviation)
 	{

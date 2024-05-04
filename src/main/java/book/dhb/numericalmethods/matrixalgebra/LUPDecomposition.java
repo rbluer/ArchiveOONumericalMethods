@@ -99,8 +99,7 @@ public class LUPDecomposition
 	    return parity != 0;
 	}
 	/**
-	 * @return double[]
-	 * @param c double[]
+	 * @return double
 	 */
 	public double determinant()
 	{
@@ -127,6 +126,9 @@ public class LUPDecomposition
 	    }
 	    return answer;
 	}
+	/**
+	 * 
+	 */
 	private void initialize ()
 	{
 	    permutation= null;

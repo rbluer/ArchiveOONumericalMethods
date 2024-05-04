@@ -8,7 +8,7 @@ public class CrossSymbolDrawer extends AbstractSymbolDrawer
 {
 
 	/**
-	 * Symbol ploting method.
+	 * Symbol plotting method.
 	 * @param g java.awt.Graphics graphics context used to perform the drawing.
 	 * @param x int Position x position of symbol
 	 * @param y int Position y position of symbol

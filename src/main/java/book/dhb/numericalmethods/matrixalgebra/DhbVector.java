@@ -7,6 +7,9 @@ package book.dhb.numericalmethods.matrixalgebra;
  */
 public class DhbVector
 {
+	/**
+	 * components
+	 */
     protected double[] components;
 
 	/**
@@ -36,9 +39,9 @@ public class DhbVector
 	    clear();
 	}
 	/**
-	 * @param v double DhbVector
+	 * @param x double[] DhbVector
 	 * @exception DhbIllegalDimension if the vector
-	 * and supplied vector do not have the same dimension.
+	 * 				and supplied vector do not have the same dimension.
 	 */
 	public void accumulate ( double[] x) throws DhbIllegalDimension
 	{
@@ -64,7 +67,7 @@ public class DhbVector
 	        components[i] += v.components[i];
 	}
 	/**
-	 * @param v double DhbVector
+	 * @param x double[] DhbVector
 	 * @exception DhbIllegalDimension if the vector
 	 * and supplied vector do not have the same dimension.
 	 */
@@ -150,6 +153,7 @@ public class DhbVector
 	}
 	/**
 	 * Computes the norm of a vector.
+	 * @return double
 	 */
 	public double norm ( )
 	{
@@ -160,6 +164,7 @@ public class DhbVector
 	}
 	/**
 	 * @param x double
+	 * @return DhbVector
 	 */
 	public DhbVector normalizedBy ( double x )
 	{
@@ -199,6 +204,7 @@ public class DhbVector
 	 * Computes the product of the transposed vector with a matrix
 	 * @return DhbVector
 	 * @param a Matrix
+	 * @throws DhbIllegalDimension error transposed dimension vector cannot be multiplied by the matrix
 	 */
 	public DhbVector product ( Matrix a) throws DhbIllegalDimension
 	{
@@ -213,6 +219,7 @@ public class DhbVector
 	}
 	/**
 	 * @param x double
+	 * @return DhbVector
 	 */
 	public DhbVector scaledBy ( double x )
 	{

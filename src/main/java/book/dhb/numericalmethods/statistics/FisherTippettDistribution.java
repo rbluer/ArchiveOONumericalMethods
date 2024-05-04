@@ -22,7 +22,7 @@ public final class FisherTippettDistribution
 	 * Constructor method
 	 * @param center double
 	 * @param scale double
-	 * @exception java.lang.IllegalArgumentException if the scale parameter is non-positive.
+	 * @throws java.lang.IllegalArgumentException if the scale parameter is non-positive.
 	 */
 	public FisherTippettDistribution( double center, double scale) throws IllegalArgumentException
 	{
@@ -35,8 +35,8 @@ public final class FisherTippettDistribution
 	 * Create an instance of the receiver with parameters estimated from the
 	 * given histogram using best guesses. This method can be used to
 	 * find the initial values for a fit.
-	 * @param h DhbScientificCurves.Histogram
-	 * @exception java.lang.IllegalArgumentException when no suitable parameter can be found.
+	 * @param h Histogram
+	 * @throws IllegalAccessException The histogram's standard deviation (beta) cannot be vanishing (less than zero). 
 	 */
 	public FisherTippettDistribution( Histogram h) throws IllegalAccessException
 	{
@@ -113,7 +113,7 @@ public final class FisherTippettDistribution
 	    return alpha - beta * Math.log( t);
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

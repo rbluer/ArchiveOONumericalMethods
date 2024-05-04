@@ -9,9 +9,21 @@ import book.dhb.numericalmethods.matrixalgebra.DhbVector;
  */
 public class ClusterFinder extends IterativeProcess
 {
+	/**
+	 * cluster
+	 */
     private Cluster[] clusters;
+    /**
+     * server
+     */
     private AbstractDataServer server;
+    /**
+     * minimum relative cluster size
+     */
     private double minimumRelativeClusterSize = 0;
+    /**
+     * data set size
+     */
     private long dataSetSize;
 	/**
 	 * Constructor method
@@ -156,7 +168,7 @@ public class ClusterFinder extends IterativeProcess
 	    clusters = newClusters;
 	}
 	/**
-	 * @param clusters Cluster[]  contained in the receiver
+	 * @param clusterArray Cluster[]  contained in the receiver
 	 */
 	public void setClusters( Cluster[] clusterArray)
 	{

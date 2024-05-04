@@ -107,7 +107,7 @@ public final class ExponentialDistribution
 	    return -beta * Math.log(generator().nextDouble());
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

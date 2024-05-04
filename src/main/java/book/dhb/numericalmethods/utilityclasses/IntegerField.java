@@ -9,7 +9,13 @@ public class IntegerField extends ValuedField
 {
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * minimum
+	 */
 	private int minimum;
+	/**
+	 * maximum
+	 */
 	private int maximum;
 
 
@@ -24,10 +30,10 @@ public class IntegerField extends ValuedField
 	}
 	/**
 	 * Full Constructor method.
-	 * @param defaultValue value displayed in the text field.
-	 * @param size number of columns of the text field. 
-	 * @param low minimum allowed value. 
-	 * @param high maximum allowed value. 
+	 * @param defaultValue int value displayed in the text field.
+	 * @param size int number of columns of the text field. 
+	 * @param low int minimum allowed value. 
+	 * @param high int maximum allowed value. 
 	 */
 	public IntegerField( int defaultValue, int size, int low, int high)
 	{
@@ -52,7 +58,7 @@ public class IntegerField extends ValuedField
 	}
 	/**
 	 * Defines the maximum value which may be entered in the text field. 
-	 * @param high maximum allowed value. 
+	 * @param low int maximum allowed value. 
 	 */
 	public void setMaximum( int low)
 	{
@@ -61,7 +67,7 @@ public class IntegerField extends ValuedField
 	}
 	/**
 	 * Defines the minimum value which may be entered in the text field. 
-	 * @param low minimum allowed value. 
+	 * @param low int minimum allowed value. 
 	 */
 	public void setMinimum( int low)
 	{

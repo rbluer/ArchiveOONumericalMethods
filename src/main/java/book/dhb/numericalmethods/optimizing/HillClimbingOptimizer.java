@@ -22,6 +22,7 @@ public class HillClimbingOptimizer extends MultiVariableOptimizer
 	 * Constructor method.
 	 * @param func ManyVariableFunction
 	 * @param pointCreator OptimizingPointFactory
+	 * @param v double[]
 	 */
 	public HillClimbingOptimizer( ManyVariableFunction func, 
 	                    OptimizingPointFactory pointCreator, double[] v)

@@ -17,13 +17,37 @@ import book.dhb.numericalmethods.statistics.ScaledProbabilityDensityFunction;
  */
 public class LeastSquareFit extends IterativeProcess
 {
+	/**
+	 * parameterized one variable function
+	 */
     protected ParametrizedOneVariableFunction result;
+    /*
+     * points
+     */
     private WeightedPoint[] points;
+    /**
+     * system matrix
+     */
     protected double[][] systemMatrix;
+    /**
+     * system constants
+     */
     protected double[] systemConstants;
+    /**
+     * system LUP
+     */
     private LUPDecomposition systemLUP;
+    /**
+     * error matrix
+     */
     private SymmetricMatrix errorMatrix;
+    /**
+     * chi square
+     */
     private double chiSquare;
+    /**
+     * degree of freedom
+     */
     private int degreeOfFreedom;
 	/**
 	 * Default constructor method (internal use only)
@@ -33,7 +57,8 @@ public class LeastSquareFit extends IterativeProcess
 	}
 	/**
 	 * Constructor method
-	 * @param n int
+	 * @param pts WeightedPoint[]
+	 * @param f ParametrizedOneVariableFunction
 	 */
 	public LeastSquareFit(WeightedPoint[] pts,
 	                                ParametrizedOneVariableFunction f)
@@ -57,7 +82,7 @@ public class LeastSquareFit extends IterativeProcess
 	    initializeSystem( result.parameters().length);
 	}
 	/**
-	 * @param wp DhbEstimation.WeightedPoint
+	 * @param wp WeightedPoint
 	 */
 	protected void accumulate( WeightedPoint wp)
 	{
@@ -152,6 +177,7 @@ public class LeastSquareFit extends IterativeProcess
 	        chiSquare += weightedPointAt(i).chi2Contribution( result);
 	}
 	/**
+	 * compute error matrix
 	 */
 	private void computeErrorMatrix()
 	{
@@ -163,6 +189,9 @@ public class LeastSquareFit extends IterativeProcess
 	        catch ( DhbNonSymmetricComponents e) {}
 	        catch ( DhbIllegalDimension ex) {};
 	}
+	/**
+	 * compute system
+	 */
 	private void computeSystem()
 	{
 	    resetSystem();
@@ -179,7 +208,7 @@ public class LeastSquareFit extends IterativeProcess
 	                    degreeOfFreedom())).confidenceLevel( chiSquare());
 	}
 	/**
-	 * @return long    the degree of freedom of the fit.
+	 * @return int    the degree of freedom of the fit.
 	 */
 	public int degreeOfFreedom()
 	{
@@ -217,6 +246,9 @@ public class LeastSquareFit extends IterativeProcess
 	    result.setParameters( parameters);
 	    return eps;
 	}
+	/**
+	 * finalize iterations
+	 */
 	public void finalizeIterations()
 	{
 	    systemMatrix = null;
@@ -247,6 +279,9 @@ public class LeastSquareFit extends IterativeProcess
 	    systemConstants = new double[ n];
 	    systemMatrix = new double[n][n];
 	}
+	/**
+	 * reset system
+	 */
 	protected void resetSystem( )
 	{
 	    for( int i = 0; i < systemConstants.length; i++ )
@@ -256,6 +291,9 @@ public class LeastSquareFit extends IterativeProcess
 	            systemMatrix[i][j] = 0;
 	    }
 	}
+	/**
+	 * symmetrize matrix
+	 */
 	private void symmetrizeMatrix( )
 	{
 	    for( int i = 0; i < systemConstants.length; i++ )
@@ -277,7 +315,7 @@ public class LeastSquareFit extends IterativeProcess
 	    return sb.toString();
 	}
 	/**
-	 * @return DhbEstimation.WeightedPoint n-th weighted data point
+	 * @return WeightedPoint n-th weighted data point
 	 * @param n int
 	 */
 	protected WeightedPoint weightedPointAt( int n)

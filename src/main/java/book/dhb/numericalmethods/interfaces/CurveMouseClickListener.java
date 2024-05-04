@@ -22,7 +22,7 @@ public interface CurveMouseClickListener
 	 * If a mouse listener has been defined, each point is tested for mouse click.
 	 * If the mouse click falls within the symbol size of a point, the index of
 	 * that point is passed to the mouse listener, along with the defined parameter.
-	 * @see #setMouseListener
+	 * 
 	 * @param index int index of the curve point on which the mouse was clicked.
 	 * @param param Object the curve identifier.
 	 * @return boolean

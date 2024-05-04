@@ -26,7 +26,7 @@ public class TrapezeIntegrator extends FunctionalIterator
     private double step;
 	/**
 	 * Constructor
-	 * @param func DhbInterfaces.OneVariableFunction
+	 * @param f OneVariableFunction
 	 * @param from double
 	 * @param to double
 	 */

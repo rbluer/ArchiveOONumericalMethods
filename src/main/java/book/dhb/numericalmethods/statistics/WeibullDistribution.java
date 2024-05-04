@@ -82,6 +82,8 @@ public final class WeibullDistribution
 	/**
 	 * Assigns new values to the parameters.
 	 * This method assumes that the parameters have been already checked.
+	 * @param shape double
+	 * @param scale double
 	 */
 	public void defineParameters ( double shape, double scale)
 	{

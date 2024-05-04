@@ -24,6 +24,9 @@ import book.dhb.numericalmethods.iterations.IterativeProcess;
     protected OptimizingPointFactory pointFactory;
 	/**
 	 * Constructor method.
+	 * @param func ManyVariableFunction
+	 * @param pointCreator OptimizingPointFactory
+	 * @param initialValue double[]
 	 */
 	public MultiVariableOptimizer(ManyVariableFunction func,
 	        OptimizingPointFactory pointCreator, double[] initialValue)
@@ -48,6 +51,7 @@ import book.dhb.numericalmethods.iterations.IterativeProcess;
 	}
 	/**
 	 * Use bubble sort to sort the best points
+	 * @param bestPoints OptimizingVector[]
 	 */
 	protected void sortPoints( OptimizingVector[] bestPoints)
 	{

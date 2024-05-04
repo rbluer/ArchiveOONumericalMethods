@@ -84,6 +84,7 @@ public class NewtonZeroFinder extends FunctionalIterator
 	}
 	/**
 	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
+	 * @param func OneVariableFunction
 	 */
 	public void setFunction( OneVariableFunction func)
 	{
@@ -92,6 +93,7 @@ public class NewtonZeroFinder extends FunctionalIterator
 	}
 	/**
 	* Defines the initial value for the search.
+	* @param start double
 	*/
 	public void setStartingValue( double start)
 	{

@@ -76,7 +76,7 @@ public class FunctionalCurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * plotCurve method comment.
-	 * @paramg Graphics
+	 * @param g Graphics
 	 * @param axes AxisSystem
 	 */
 	public void plotCurve(java.awt.Graphics g, AxisSystem axes)

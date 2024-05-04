@@ -10,7 +10,13 @@ public abstract class ValuedField extends TextField
 {
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * is minimum defined
+	 */
 	protected boolean minimumDefined = false;
+	/**
+	 * is maximum defined
+	 */
 	protected boolean maximumDefined = false;
 
 
@@ -18,7 +24,7 @@ public abstract class ValuedField extends TextField
 	/**
 	 * General constructor method
 	 * @param defaultValue the string to put in the field.
-	 * @param size the size of te text field in columns.
+	 * @param size the size of the text field in columns.
 	 */
 	public ValuedField( String defaultValue, int size)
 	{
@@ -26,7 +32,7 @@ public abstract class ValuedField extends TextField
 	}
 	/**
 	 * General error recovery when illegal input is performed:
-	 * ring the bell, select the entire text and setthe foucs on the text field.
+	 * ring the bell, select the entire text and set the focus on the text field.
 	 */
 	public void standardErrorRecovery()
 	{

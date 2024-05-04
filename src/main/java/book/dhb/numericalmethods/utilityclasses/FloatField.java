@@ -61,16 +61,16 @@ public class FloatField extends ValuedField
 	}
 	/**
 	 * Defines the maximum value which may be entered in the text field. 
-	 * @param high maximum allowed value. 
+	 * @param high float maximum allowed value. 
 	 */
-	public void setMaximum( float low)
+	public void setMaximum( float high)
 	{
-		maximum = low;
+		maximum = high;
 		maximumDefined = true;
 	}
 	/**
 	 * Defines the minimum value which may be entered in the text field. 
-	 * @param low minimum allowed value. 
+	 * @param low float minimum allowed value. 
 	 */
 	public void setMinimum( float low)
 	{

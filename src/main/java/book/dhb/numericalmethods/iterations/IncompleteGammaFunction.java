@@ -30,6 +30,7 @@ public class IncompleteGammaFunction implements OneVariableFunction
 
 	/**
 	 * Constructor method.
+	 * @param a double
 	 */
 	public IncompleteGammaFunction ( double a)
 	{

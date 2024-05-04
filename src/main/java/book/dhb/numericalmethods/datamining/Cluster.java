@@ -8,6 +8,9 @@ import book.dhb.numericalmethods.matrixalgebra.DhbVector;
  */
 public abstract class Cluster
 {
+	/**
+	 * previous sample size
+	 */
     protected long previousSampleSize = 0;
 	/**
 	 * Default constructor method.

@@ -55,7 +55,7 @@ public class HistogramPanel extends Panel
 
 	/**
 	 * Constructor method.
-	 * @param histogram
+	 * @param histogram Histogram
 	 */
 	public HistogramPanel( Histogram histogram)
 	{
@@ -91,7 +91,7 @@ public class HistogramPanel extends Panel
 	}
 	/**
 	 * Overlay a function on the histogram's display.
-	 * @param curve overlay curve definition.
+	 * @param func OneVariableFunction overlay curve definition.
 	 * @param sampling int
 	 */
 	public void overlayFunction ( OneVariableFunction func, int sampling)
@@ -102,7 +102,7 @@ public class HistogramPanel extends Panel
 	}
 	/**
 	 * Constructs the panel used to show the statistics of the histogram.
-	 * @return the panel of statistics
+	 * @return Panel the panel of statistics
 	 * @param histogram Histogram
 	 */
 	private Panel statisticsPanel( Histogram histogram)

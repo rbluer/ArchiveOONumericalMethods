@@ -8,10 +8,17 @@ import book.dhb.numericalmethods.matrixalgebra.DhbVector;
  */
 public class VectorAccumulator
 {
+	/**
+	 * count
+	 */
     protected long count = 0;
+    /**
+     * averages
+     */
     protected double[] average;
 	/**
 	 * Default constructor method.
+	 * @param n int
 	 */
 	public VectorAccumulator(int n)
 	{

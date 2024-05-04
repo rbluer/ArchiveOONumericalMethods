@@ -24,7 +24,7 @@ public abstract class OptimizingVector
 	/**
 	 * Constructor method.
 	 * @param v double[]
-	 * @param f DhbInterfaces.OneVariableFunction
+	 * @param func ManyVariableFunction
 	 */
 	public OptimizingVector(double[] v, ManyVariableFunction func)
 	{
@@ -35,7 +35,7 @@ public abstract class OptimizingVector
 	/**
 	 * @return boolean    true if the receiver is "better" than 
 	 *                                                the supplied point
-	 * @param point OptimizingVector
+	 * @param entity OptimizingVector
 	 */
 	public abstract boolean betterThan( OptimizingVector entity);
 	/**
@@ -52,7 +52,7 @@ public abstract class OptimizingVector
 	    value = f.value( position);
 	}
 	/**
-	 * @return double    the receiver's position
+	 * @return double[]    the receiver's position
 	 */
 	public double[] getPosition()
 	{

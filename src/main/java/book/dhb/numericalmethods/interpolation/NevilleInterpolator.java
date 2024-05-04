@@ -9,7 +9,13 @@ import book.dhb.numericalmethods.interfaces.PointSeries;
  */
 public class NevilleInterpolator extends LagrangeInterpolator
 {
+	/**
+	 * left errors
+	 */
     protected double[] leftErrors = null;
+    /**
+     * right errors
+     */
     protected double[] rightErrors = null;
 	/**
 	 * Constructor method.

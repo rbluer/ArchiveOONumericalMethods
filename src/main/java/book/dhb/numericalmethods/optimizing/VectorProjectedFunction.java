@@ -56,6 +56,7 @@ public class VectorProjectedFunction implements OneVariableFunction
 	 * @param x double[]    origin of projected function
 	 * @exception DhbIllegalDimension
 	 *                        if dimension of x is not that of the origin.
+	 * @return DhbVector
 	 */
 	public DhbVector argumentAt(double x) throws DhbIllegalDimension
 	{

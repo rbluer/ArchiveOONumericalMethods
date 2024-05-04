@@ -116,7 +116,7 @@ public final class LaplaceDistribution
 	    return generator().nextDouble() > 0.5 ? mu + r : mu - r;
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

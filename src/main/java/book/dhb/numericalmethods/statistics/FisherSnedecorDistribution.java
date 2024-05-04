@@ -165,7 +165,7 @@ public final class FisherSnedecorDistribution
 	}
 	/**
 	 * This function cannot be fitted because the parameters are integers.
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

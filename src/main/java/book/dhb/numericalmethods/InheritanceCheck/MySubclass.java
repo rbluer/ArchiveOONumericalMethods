@@ -1,8 +1,10 @@
-package book.dhb.numericalmethods.InheritanceCheck;
-
+package book.dhb.numericalmethods.inheritancecheck;
+/**
+ * My subclass
+ */
 public class MySubclass extends MyClass {
 	/**
-	 * 
+	 * constructor
 	 */
 	public MySubclass() {
 	    super();
