@@ -18,7 +18,7 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * @param n int
-	 * @exception java.lang.NegativeArraySizeException if n &lt;&equals; 0
+	 * @exception java.lang.NegativeArraySizeException if n &lt;&#61; 0
 	 */
 	public SymmetricMatrix (int n ) throws NegativeArraySizeException
 	{
@@ -28,7 +28,7 @@ public class SymmetricMatrix extends Matrix {
 	 * Constructor method.
 	 * @param n int
 	 * @param m int
-	 * @exception java.lang.NegativeArraySizeException if n,m &lt;&equals; 0
+	 * @exception java.lang.NegativeArraySizeException if n,m &lt;&#61; 0
 	 */
 	public SymmetricMatrix(int n, int m) throws NegativeArraySizeException {
 	    super(n, m);
