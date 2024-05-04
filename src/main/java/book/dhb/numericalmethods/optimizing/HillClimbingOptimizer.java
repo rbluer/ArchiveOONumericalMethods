@@ -78,8 +78,8 @@ public class HillClimbingOptimizer extends MultiVariableOptimizer
 	        rotateDirections();
 	        adjustLastDirection( start);
 	        return computePrecision( start.toComponents());
-	    } catch (NegativeArraySizeException e){ return Double.NaN;}
-	    catch ( DhbIllegalDimension e){ return Double.NaN;};
+	    } 
+	    catch ( NegativeArraySizeException | DhbIllegalDimension e ){ return Double.NaN;}
 	}
 	
 	public void initializeIterations()

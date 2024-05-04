@@ -149,7 +149,8 @@ public class SimplexOptimizer extends MultiVariableOptimizer
 	        }
 	        result = simplex[0].getPosition();
 	        return computePrecision();
-	    } catch ( DhbIllegalDimension e) { return 1;};
+	    } 
+	    catch ( DhbIllegalDimension e) { return 1;}
 	}
 	/**
 	 * Create a Simplex by finding the optimum in each direction

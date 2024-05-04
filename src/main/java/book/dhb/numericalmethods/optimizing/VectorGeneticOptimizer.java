@@ -73,8 +73,10 @@ public class VectorGeneticOptimizer extends GeneticOptimizer
 	 */
 	public Object individualAt( int n)
 	{
-	    try { return new DhbVector( bestPoints[n].getPosition());}
-	        catch( NegativeArraySizeException e) { return null;};
+	    try { 
+	    	return new DhbVector( bestPoints[n].getPosition());
+	    }
+	    catch( NegativeArraySizeException e) { return null;}
 	}
 	/**
 	 * @param n int    size of the initial population
