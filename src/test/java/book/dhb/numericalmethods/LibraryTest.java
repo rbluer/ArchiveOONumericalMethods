@@ -5,8 +5,6 @@ package book.dhb.numericalmethods;
 
 import org.junit.jupiter.api.Test;
 
-import book.dhb.numericalmethods.Library;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
