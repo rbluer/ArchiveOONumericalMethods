@@ -16,17 +16,19 @@ public abstract class Cluster
 	}
 	/**
 	 * Constructor method.
+	 * @param v DhbVector
 	 */
 	public Cluster(DhbVector v)
 	{
 	    initialize(v);
 	}
 	/**
-	 * @param Object    data point
+	 * @param dataPoint DhbVector    data point
 	 */
 	public abstract void accumulate(DhbVector dataPoint);
 	/**
-	 * @param Object    data point
+	 * @param dataPoint DhbVector   data point
+	 * @return double
 	 */
 	public abstract double distanceTo(DhbVector dataPoint);
 	/**
@@ -41,7 +43,7 @@ public abstract class Cluster
 	 */
 	public abstract long getSampleSize();
 	/**
-	 * @param v DhbMatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 */
 	public abstract void initialize( DhbVector v);
 	/**
@@ -54,7 +56,7 @@ public abstract class Cluster
 	/**
 	 * @return boolean    true if the receiver should be dropped from
 	 *                                                     the cluster finder
-	 * @param finder DhbDataMining.ClusterFinder
+	 * @param finder ClusterFinder
 	 */
 	public boolean isInsignificantIn( ClusterFinder finder)
 	{
@@ -64,6 +66,9 @@ public abstract class Cluster
 	 * @return boolean    true if the cluster is in an undefined state.
 	 */
 	public abstract boolean isUndefined( );
+	/**
+	 * reset
+	 */
 	public void reset()
 	{
 	    previousSampleSize = getSampleSize();

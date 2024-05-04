@@ -13,7 +13,7 @@ public class JacobiTransformation extends IterativeProcess
     int p,q;    //Indices of the largest off-diagonal element
 	/**
 	 * Create a new instance for a given symmetric matrix.
-	 * @param m DhbMatrixAlgebra.SymmetricMatrix
+	 * @param m SymmetricMatrix
 	 */
 	public JacobiTransformation (SymmetricMatrix m)
 	{
@@ -37,7 +37,7 @@ public class JacobiTransformation extends IterativeProcess
 	    return eigenvalues;
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 */
 	public DhbVector[] eigenvectors ( )
 	{
@@ -52,6 +52,9 @@ public class JacobiTransformation extends IterativeProcess
 	    }    
 	    return eigenvectors;
 	}
+	/**
+	 * 
+	 */
 	public double evaluateIteration()
 	{
 	    double offDiagonal = largestOffDiagonal();
@@ -75,6 +78,9 @@ public class JacobiTransformation extends IterativeProcess
 	        transform[i][m1] = temp;
 	    }    
 	}
+	/**
+	 * 
+	 */
 	public void finalizeIterations ( ) 
 	{
 	    int n = rows.length;
@@ -95,6 +101,9 @@ public class JacobiTransformation extends IterativeProcess
 	    }    
 	    return;
 	}
+	/**
+	 * 
+	 */
 	public void initializeIterations()
 	{
 	    transform = SymmetricMatrix.identityMatrix( rows.length).components;
@@ -146,7 +155,7 @@ public class JacobiTransformation extends IterativeProcess
 	    return sb.toString();
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * 
 	 */
 	private void transform ( )
 	{

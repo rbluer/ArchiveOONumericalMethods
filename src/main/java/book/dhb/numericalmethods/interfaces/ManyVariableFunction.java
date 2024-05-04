@@ -12,6 +12,8 @@ public interface ManyVariableFunction
 
 	/**
 	 * Returns the value of the function for the specified vector.
+	 * @param x double[]
+	 * @return double
 	 */
 	public double value ( double[] x);
 }

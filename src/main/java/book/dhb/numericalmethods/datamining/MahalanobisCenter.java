@@ -16,7 +16,7 @@ public class MahalanobisCenter
     private CovarianceAccumulator accumulator;
 	/**
 	 * Constructor method.
-	 * @param int dimension of the receiver
+	 * @param dimension int of the receiver
 	 */
 	public MahalanobisCenter( int dimension)
 	{
@@ -24,7 +24,7 @@ public class MahalanobisCenter
 	}
 	/**
 	 * Constructor method.
-	 * @param DhbVector center of the receiver
+	 * @param v DhbVector center of the receiver
 	 */
 	public MahalanobisCenter( DhbVector v)
 	{

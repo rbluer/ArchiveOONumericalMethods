@@ -16,8 +16,8 @@ public class SimplexOptimizer extends MultiVariableOptimizer
     private OptimizingVector[] simplex;
 	/**
 	 * Constructor method.
-	 * @param func DhbInterfaces.ManyVariableFunction
-	 * @param pointCreator DhbOptimizing.OptimizingPointFactory
+	 * @param func ManyVariableFunction
+	 * @param pointCreator OptimizingPointFactory
 	 * @param initialValue double[]
 	 */
 	public SimplexOptimizer(ManyVariableFunction func, 
@@ -27,7 +27,7 @@ public class SimplexOptimizer extends MultiVariableOptimizer
 	}
 	/**
 	 * Add a new best point to the simplex
-	 * @param v DhbOptimizing.OptimizingVector
+	 * @param v OptimizingVector
 	 */
 	private void addBestPoint( OptimizingVector v)
 	{

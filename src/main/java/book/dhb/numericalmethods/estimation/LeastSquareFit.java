@@ -152,7 +152,6 @@ public class LeastSquareFit extends IterativeProcess
 	        chiSquare += weightedPointAt(i).chi2Contribution( result);
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
 	 */
 	private void computeErrorMatrix()
 	{
@@ -190,7 +189,7 @@ public class LeastSquareFit extends IterativeProcess
 	    return degreeOfFreedom;
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix    the error matrix of the fit.
+	 * @return SymmetricMatrix    the error matrix of the fit.
 	 */
 	public SymmetricMatrix errorMatrix()
 	{

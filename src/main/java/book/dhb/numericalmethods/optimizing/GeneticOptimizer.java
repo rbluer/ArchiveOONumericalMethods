@@ -15,8 +15,8 @@ public abstract class GeneticOptimizer extends MultiVariableOptimizer
     private ChromosomeManager chromosomeManager;
 	/**
 	 * Constructor method.
-	 * @param func DhbInterfaces.ManyVariableFunction
-	 * @param pointCreator DhbOptimizing.OptimizingPointFactory
+	 * @param func ManyVariableFunction
+	 * @param pointCreator OptimizingPointFactory
 	 * @param chrManager ChromosomeManager
 	 */
 	public GeneticOptimizer(ManyVariableFunction func, 

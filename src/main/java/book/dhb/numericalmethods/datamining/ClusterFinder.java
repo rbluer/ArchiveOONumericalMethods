@@ -15,8 +15,8 @@ public class ClusterFinder extends IterativeProcess
     private long dataSetSize;
 	/**
 	 * Constructor method
-	 * @param Cluster[] clusterArray    initial clusters
-	 * @param server AbstractDataServer    server for the data points
+	 * @param clusterArray Cluster[]    initial clusters
+	 * @param clusterServer AbstractDataServer    server for the data points
 	 */
 	public ClusterFinder(Cluster[] clusterArray,
 	                                    AbstractDataServer clusterServer)
@@ -27,7 +27,7 @@ public class ClusterFinder extends IterativeProcess
 	/**
 	 * Constructor method
 	 * @param numberOfCluster int    maximum number of clusters foreseen
-	 * @param server AbstractDataServer    server for the data points
+	 * @param clusterServer AbstractDataServer    server for the data points
 	 */
 	public ClusterFinder(int numberOfCluster,
 	                                    AbstractDataServer clusterServer)
@@ -156,7 +156,7 @@ public class ClusterFinder extends IterativeProcess
 	    clusters = newClusters;
 	}
 	/**
-	 * @return DhbDataMining.Cluster[] clusters contained in the receiver
+	 * @param clusters Cluster[]  contained in the receiver
 	 */
 	public void setClusters( Cluster[] clusterArray)
 	{

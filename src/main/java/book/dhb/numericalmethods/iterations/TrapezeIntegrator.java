@@ -66,8 +66,8 @@ public class TrapezeIntegrator extends FunctionalIterator
 	}
 	/**
 	* Defines integration interval.
-	* @param double a low integral bound.
-	* @param double b high integral bound.
+	* @param a double low integral bound.
+	* @param b double high integral bound.
 	*/
 	public void setInterval( double a, double b)
 	{

@@ -50,12 +50,16 @@ public abstract class ChromosomeManager
 	public abstract void addCloneOf( Object x);
 	/**
 	 * @param x java.lang.Object
+	 * @param y java.lang.Object
 	 */
 	public abstract void addCrossoversOf( Object x, Object y);
 	/**
 	 * @param x java.lang.Object
 	 */
 	public abstract void addMutationOf( Object x);
+	/**
+	 * add random chromosome
+	 */
 	public abstract void addRandomChromosome();
 	/**
 	 * @return int    the current size of the population
@@ -129,14 +133,14 @@ public abstract class ChromosomeManager
 	    populationSize = n;
 	}
 	/**
-	 * @param n int    desired rate of crossover
+	 * @param cRate int    desired rate of crossover
 	 */
 	public void setRateOfCrossover( int cRate)
 	{
 	    rateOfCrossover = cRate;
 	}
 	/**
-	 * @param n int    desired rate of mutation
+	 * @param mRate int    desired rate of mutation
 	 */
 	public void setRateOfMutation( int mRate)
 	{

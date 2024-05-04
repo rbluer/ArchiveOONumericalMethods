@@ -55,34 +55,35 @@ public abstract class IterativeProcess
 	abstract public double evaluateIteration();
 	/**
 	 * Perform eventual clean-up operations
-	 * (mustbe implement by subclass when needed).
+	 * (must be implement by subclass when needed).
 	 */
 	public void finalizeIterations ( )
 	{
 	}
 	/**
-	 * Returns the desired precision.
+	 * @return double Returns the desired precision.
 	 */
 	public double getDesiredPrecision( )
 	{
 	    return desiredPrecision;
 	}
 	/**
-	 * Returns the number of iterations performed.
+	 * @return int Returns the number of iterations performed.
 	 */
 	public int getIterations()
 	{
 	    return iterations;
 	}
 	/**
-	 * Returns the maximum allowed number of iterations.
+	 * @return int Returns the maximum allowed number of iterations.
 	 */
+	
 	public int getMaximumIterations( )
 	{
 	    return maximumIterations;
 	}
 	/**
-	 * Returns the attained precision.
+	 * @return double Returns the attained precision.
 	 */
 	public double getPrecision()
 	{
@@ -114,6 +115,8 @@ public abstract class IterativeProcess
 	}
 	/**
 	 * Defines the desired precision.
+	 * @param prec double
+	 * @throws IllegalArgumentException
 	 */
 	public void setDesiredPrecision( double prec )
 	                                    throws IllegalArgumentException
@@ -125,6 +128,8 @@ public abstract class IterativeProcess
 	}
 	/**
 	 * Defines the maximum allowed number of iterations.
+	 * @param maxIter int
+	 * @throws IllegalArgumentException non-positive maximum iteration
 	 */
 	public void setMaximumIterations( int maxIter)
 	                                    throws IllegalArgumentException

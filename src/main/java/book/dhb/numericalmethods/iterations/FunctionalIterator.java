@@ -20,7 +20,6 @@ public abstract class FunctionalIterator extends IterativeProcess
 	/**
 	 * Generic constructor.
 	 * @param func OneVariableFunction
-	 * @param start double
 	 */
 	public FunctionalIterator(OneVariableFunction func)
 	{
@@ -28,7 +27,8 @@ public abstract class FunctionalIterator extends IterativeProcess
 	}
 	/**
 	* Returns the result (assuming convergence has been attained).
-	*/
+	 * @return double
+	 */
 	public double getResult( )
 	{
 	    return result;

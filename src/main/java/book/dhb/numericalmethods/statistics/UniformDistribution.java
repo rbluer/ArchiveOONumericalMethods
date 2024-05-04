@@ -105,7 +105,7 @@ public final class UniformDistribution
 	    return (b - a) * x + a;
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

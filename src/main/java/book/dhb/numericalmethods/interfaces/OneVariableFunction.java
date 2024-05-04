@@ -12,6 +12,8 @@ public interface OneVariableFunction
 	
 	/**
 	 * Returns the value of the function for the specified variable value.
+	 * @param x double
+	 * @return double
 	 */
 	public double value( double x);
 }

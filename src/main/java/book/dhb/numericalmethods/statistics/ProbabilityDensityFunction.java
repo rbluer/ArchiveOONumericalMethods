@@ -54,7 +54,7 @@ public abstract class ProbabilityDensityFunction
 	/**
 	 * Returns the probability of finding a random variable smaller than
 	 * or equal to x.
-	 * This method assumes that the probability density is 0 for x < 0.
+	 * This method assumes that the probability density is 0 for x &lt; 0.
 	 * If this is not the case, the subclass must implement this method.
 	 * @return integral of the probability density function from 0 to x.
 	 * @param x double upper limit of intergral.

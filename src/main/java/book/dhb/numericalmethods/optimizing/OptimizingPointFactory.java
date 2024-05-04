@@ -4,7 +4,7 @@ import book.dhb.numericalmethods.interfaces.ManyVariableFunction;
 import book.dhb.numericalmethods.interfaces.OneVariableFunction;
 import book.dhb.numericalmethods.matrixalgebra.DhbVector;
 /**
- * Factory of point/vector & function holders for optimizing functions.
+ * Factory of point/vector &amp; function holders for optimizing functions.
  *
  * @author Didier H. Besset
  */

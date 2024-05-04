@@ -91,14 +91,14 @@ public final class LogNormalDistribution
 	    return Math.exp( normalDistr.random());
 	}
 	/**
-	 * @param m double
+	 * @param mu double
 	 */
 	public void setMu( double mu)
 	{
 	    normalDistr.setAverage( mu);
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

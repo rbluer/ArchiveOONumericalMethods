@@ -72,6 +72,9 @@ public class VectorAccumulator
 	        separator = ' ';
 	    }
 	}
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 	    count = 0;

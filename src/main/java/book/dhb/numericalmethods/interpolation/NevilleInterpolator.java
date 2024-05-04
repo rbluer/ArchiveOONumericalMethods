@@ -13,7 +13,7 @@ public class NevilleInterpolator extends LagrangeInterpolator
     protected double[] rightErrors = null;
 	/**
 	 * Constructor method.
-	 * @param pts DhbInterfaces.PointSeries contains the points sampling
+	 * @param pts PointSeries contains the points sampling
 	 *                 the function to interpolate.
 	 * @exception java.lang.IllegalArgumentException points are not sorted
 	 *                 in increasing x values.
@@ -43,6 +43,7 @@ public class NevilleInterpolator extends LagrangeInterpolator
 	    rightErrors[n] = ratio * rightDist;
 	}
 	/**
+	 * @param x
 	 * @return int
 	 */
 	private int initializeDifferences( double x)

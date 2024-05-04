@@ -36,8 +36,8 @@ public class DhbVector
 	    clear();
 	}
 	/**
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the vector
+	 * @param v double DhbVector
+	 * @exception DhbIllegalDimension if the vector
 	 * and supplied vector do not have the same dimension.
 	 */
 	public void accumulate ( double[] x) throws DhbIllegalDimension
@@ -50,8 +50,8 @@ public class DhbVector
 	        components[i] += x[i];
 	}
 	/**
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the vector
+	 * @param v DhbVector
+	 * @exception DhbIllegalDimension if the vector
 	 * and supplied vector do not have the same dimension.
 	 */
 	public void accumulate ( DhbVector v) throws DhbIllegalDimension
@@ -64,8 +64,8 @@ public class DhbVector
 	        components[i] += v.components[i];
 	}
 	/**
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the vector
+	 * @param v double DhbVector
+	 * @exception DhbIllegalDimension if the vector
 	 * and supplied vector do not have the same dimension.
 	 */
 	public void accumulateNegated( double[] x) throws DhbIllegalDimension
@@ -78,8 +78,8 @@ public class DhbVector
 	        components[i] -= x[i];
 	}
 	/**
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the vector
+	 * @param v DhbVector
+	 * @exception DhbIllegalDimension if the vector
 	 * and supplied vector do not have the same dimension.
 	 */
 	public void accumulateNegated( DhbVector v) throws DhbIllegalDimension
@@ -92,10 +92,10 @@ public class DhbVector
 	        components[i] -= v.components[i];
 	}
 	/**
-	 * @return DHBmatrixAlgebra.DhbVector sum of the vector with
+	 * @return DhbVector sum of the vector with
 	 *                                                the supplied vector
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the vector
+	 * @param v DhbVector
+	 * @exception DhbIllegalDimension if the vector
 	 *                 and supplied vector do not have the same dimension.
 	 */
 	public DhbVector add ( DhbVector v) throws DhbIllegalDimension
@@ -134,7 +134,7 @@ public class DhbVector
 	}
 	/**
 	 * @return true if the supplied vector is equal to the receiver
-	 * @param v DHBmatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 */
 	public boolean equals( DhbVector v)
 	{
@@ -169,7 +169,7 @@ public class DhbVector
 	}
 	/**
 	 * Computes the product of the vector by a number.
-	 * @return DHBmatrixAlgebra.DhbVector
+	 * @return DhbVector
 	 * @param d double
 	 */
 	public DhbVector product( double d)
@@ -182,8 +182,8 @@ public class DhbVector
 	/**
 	 * Compute the scalar product (or dot product) of two vectors.
 	 * @return double the scalar product of the receiver with the argument
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the dimension
+	 * @param v DhbVector
+	 * @exception DhbIllegalDimension if the dimension
 	 *                                                of v is not the same.
 	 */
 	public double product ( DhbVector v) throws DhbIllegalDimension
@@ -197,8 +197,8 @@ public class DhbVector
 	}
 	/**
 	 * Computes the product of the transposed vector with a matrix
-	 * @return MatrixAlgebra.DhbVector
-	 * @param a MatrixAlgebra.Matrix
+	 * @return DhbVector
+	 * @param a Matrix
 	 */
 	public DhbVector product ( Matrix a) throws DhbIllegalDimension
 	{
@@ -224,7 +224,7 @@ public class DhbVector
 	 * Compute the scalar product (or dot product) of two vectors.
 	 * No dimension checking is made.
 	 * @return double the scalar product of the receiver with the argument
-	 * @param v DHBmatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 */
 	protected double secureProduct ( DhbVector v)
 	{
@@ -235,8 +235,8 @@ public class DhbVector
 	}
 	/**
 	 * Computes the product of the transposed vector with a matrix
-	 * @return MatrixAlgebra.DhbVector
-	 * @param a MatrixAlgebra.Matrix
+	 * @return DhbVector
+	 * @param a Matrix
 	 */
 	protected DhbVector secureProduct ( Matrix a) 
 	{
@@ -252,10 +252,10 @@ public class DhbVector
 	    return new DhbVector( vectorComponents);
 	}
 	/**
-	 * @return DHBmatrixAlgebra.DhbVector    subtract the supplied vector
+	 * @return DhbVector    subtract the supplied vector
 	 *                                                    to the receiver
-	 * @param v DHBmatrixAlgebra.DhbVector
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension if the vector
+	 * @param v DhbVector
+	 * @exception DhbIllegalDimension if the vector
 	 * and supplied vector do not have the same dimension.
 	 */
 	public DhbVector subtract ( DhbVector v) throws DhbIllegalDimension
@@ -270,10 +270,8 @@ public class DhbVector
 	    return new DhbVector( newComponents);
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix    tensor product with the specified
-	 *                                                                vector
-	 * @param v MatrixAlgebra.DhbVector    second vector to build tensor
-	 *                                                        product with.
+	 * @return Matrix    tensor product with the specified vector
+	 * @param v DhbVector    second vector to build tensor product with.
 	 */
 	public Matrix tensorProduct ( DhbVector v)
 	{

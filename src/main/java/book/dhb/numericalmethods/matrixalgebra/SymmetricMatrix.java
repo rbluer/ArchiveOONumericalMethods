@@ -18,7 +18,7 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * @param n int
-	 * @exception java.lang.NegativeArraySizeException if n <= 0
+	 * @exception java.lang.NegativeArraySizeException if n &lt;&equals; 0
 	 */
 	public SymmetricMatrix (int n ) throws NegativeArraySizeException
 	{
@@ -28,7 +28,7 @@ public class SymmetricMatrix extends Matrix {
 	 * Constructor method.
 	 * @param n int
 	 * @param m int
-	 * @exception java.lang.NegativeArraySizeException if n,m <= 0
+	 * @exception java.lang.NegativeArraySizeException if n,m &lt;&equals; 0
 	 */
 	public SymmetricMatrix(int n, int m) throws NegativeArraySizeException {
 	    super(n, m);
@@ -46,7 +46,7 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * Answers the inverse of the receiver computed via the CRL algorithm.
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 * @exception java.lang.ArithmeticException if the matrix is singular.
 	 */
 	private SymmetricMatrix crlInverse ( ) throws ArithmeticException
@@ -68,11 +68,11 @@ public class SymmetricMatrix extends Matrix {
 	    return SymmetricMatrix.join( splitMatrices);
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 * @param    comp double[][]    components of the matrix
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension
+	 * @exception DhbIllegalDimension
 	 *             The supplied components are not those of a square matrix.
-	 * @exception DhbMatrixAlgebra.DhbNonSymmetricComponents
+	 * @exception DhbNonSymmetricComponents
 	 *            The supplied components are not symmetric.
 	 */
 	public static SymmetricMatrix fromComponents ( double[][] comp)
@@ -124,7 +124,7 @@ public class SymmetricMatrix extends Matrix {
 	/**
 	 * Compute the inverse of the receiver in the case of a 1 by 1 matrix.
 	 * Internal use only: no check is made.
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 */
 	private SymmetricMatrix inverse1By1 ( )
 	{
@@ -135,7 +135,7 @@ public class SymmetricMatrix extends Matrix {
 	/**
 	 * Compute the inverse of the receiver in the case of a 2 by 2 matrix.
 	 * Internal use only: no check is made.
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 */
 	private SymmetricMatrix inverse2By2 ( )
 	{
@@ -150,8 +150,8 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * Build a matrix from 3 parts (inverse of split).
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
-	 * @param a DhbMatrixAlgebra.Matrix[]
+	 * @return SymmetricMatrix
+	 * @param a Matrix[]
 	 */
 	private static SymmetricMatrix join ( Matrix[] a)
 	{
@@ -190,7 +190,7 @@ public class SymmetricMatrix extends Matrix {
 	    }    
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 * @param a double
 	 */
 	public Matrix product ( double a)
@@ -198,8 +198,8 @@ public class SymmetricMatrix extends Matrix {
 	    return new SymmetricMatrix( productComponents( a));
 	}
 	/**
-	 * @return Matrix        product of the receiver with the supplied matrix
-	 * @param a Matrix
+	 * @return SymmetricMatrix        product of the receiver with the supplied matrix
+	 * @param a SymmetricMatrix
 	 * @exception DhbIllegalDimension If the number of columns of
 	 * the receivers are not equal to the number of rows
 	 * of the supplied matrix.
@@ -209,10 +209,10 @@ public class SymmetricMatrix extends Matrix {
 	    return new SymmetricMatrix( productComponents( a));
 	}
 	/**
-	 * @return DhbMatrixAlgebra.Matrix    product of the receiver with
+	 * @return SymmetricMatrix    product of the receiver with
 	 *                                 the transpose of the supplied matrix
-	 * @param a DhbMatrixAlgebra.Matrix
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension If the number of
+	 * @param a SymmetricMatrix
+	 * @exception DhbIllegalDimension If the number of
 	 *            columns of the receiver are not equal to the number of
 	 *            columns of the supplied matrix.
 	 */
@@ -229,8 +229,8 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * Same as add ( SymmetricMatrix a), but without dimension checking.
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
-	 * @param a DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
+	 * @param a SymmetricMatrix
 	 */
 	protected SymmetricMatrix secureAdd ( SymmetricMatrix a)
 	{
@@ -238,8 +238,8 @@ public class SymmetricMatrix extends Matrix {
 	}    
 	/**
 	 * Same as product(DhbSymmetricMatrix a), but without dimension checking.
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
-	 * @param a DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
+	 * @param a SymmetricMatrix
 	 */
 	protected SymmetricMatrix secureProduct ( SymmetricMatrix a)
 	{
@@ -247,8 +247,8 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * Same as subtract ( SymmetricMatrix a), but without dimension checking.
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
-	 * @param a DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
+	 * @param a SymmetricMatrix
 	 */
 	protected SymmetricMatrix secureSubtract ( SymmetricMatrix a)
 	{
@@ -256,7 +256,7 @@ public class SymmetricMatrix extends Matrix {
 	}
 	/**
 	 * Divide the receiver into 3 matrices or approximately equal dimension.
-	 * @return DhbMatrixAlgebra.Matrix[]    Array of splitted matrices
+	 * @return Matrix[]    Array of splitted matrices
 	 */
 	private Matrix[] split ( )
 	{
@@ -285,9 +285,9 @@ public class SymmetricMatrix extends Matrix {
 	    return answer;
 	}
 	/**
-	 * @return DHBmatrixAlgebra.SymmetricMatrix
-	 * @param a DHBmatrixAlgebra.SymmetricMatrix
-	 * @exception DHBmatrixAlgebra.DhbIllegalDimension (from constructor).
+	 * @return SymmetricMatrix
+	 * @param a SymmetricMatrix
+	 * @exception DhbIllegalDimension (from constructor).
 	 */
 	public SymmetricMatrix subtract ( SymmetricMatrix a)
 	                                        throws DhbIllegalDimension
@@ -295,17 +295,17 @@ public class SymmetricMatrix extends Matrix {
 	    return new SymmetricMatrix( subtractComponents( a));
 	}
 	/**
-	 * @return DHBmatrixAlgebra.Matrix        the same matrix
+	 * @return Matrix        the same matrix
 	 */
 	public Matrix transpose()
 	{
 	    return this;
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix    product of the tranpose
+	 * @return SymmetricMatrix    product of the transpose
 	 *                             of the receiver with the supplied matrix
-	 * @param a DhbMatrixAlgebra.SymmetricMatrix
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension If the number of
+	 * @param a SymmetricMatrix
+	 * @exception DhbIllegalDimension If the number of
 	 *                        rows of the receiver are not equal to
 	 *                        the number of rows of the supplied matrix.
 	 */

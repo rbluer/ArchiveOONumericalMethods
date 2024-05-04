@@ -23,8 +23,9 @@ public interface CurveMouseClickListener
 	 * If the mouse click falls within the symbol size of a point, the index of
 	 * that point is passed to the mouse listener, along with the defined parameter.
 	 * @see #setMouseListener
-	 * @param index index of the curve point on which the mouse was clicked.
-	 * @param param the curve identifier.
+	 * @param index int index of the curve point on which the mouse was clicked.
+	 * @param param Object the curve identifier.
+	 * @return boolean
 	 */
 	public boolean handleMouseClick( int index, Object param);
 }

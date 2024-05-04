@@ -117,8 +117,8 @@ public class PolynomialFunction implements OneVariableFunction
 	}
 	/**
 	 *
-	 * @param r double
-	 * @return DhbFunctionEvaluation.PolynomialFunction
+	 * @param p PolynomialFunction
+	 * @return PolynomialFunction
 	 */
 	public PolynomialFunction divide( PolynomialFunction p)
 	{
@@ -126,8 +126,8 @@ public class PolynomialFunction implements OneVariableFunction
 	}
 	/**
 	 *
-	 * @param r double
-	 * @return DhbFunctionEvaluation.PolynomialFunction
+	 * @param p PolynomialFunction
+	 * @return PolynomialFunction
 	 */
 	public PolynomialFunction[] divideWithRemainder( PolynomialFunction p)
 	{
@@ -184,7 +184,7 @@ public class PolynomialFunction implements OneVariableFunction
 	/**
 	 *
 	 * @param r double
-	 * @return DhbFunctionEvaluation.PolynomialFunction
+	 * @return PolynomialFunction
 	 */
 	public PolynomialFunction multiply( double r)
 	{
@@ -196,8 +196,8 @@ public class PolynomialFunction implements OneVariableFunction
 	}
 	/**
 	 *
-	 * @param p DhbFunctionEvaluation.PolynomialFunction
-	 * @return DhbFunctionEvaluation.PolynomialFunction
+	 * @param p PolynomialFunction
+	 * @return PolynomialFunction
 	 */
 	public PolynomialFunction multiply( PolynomialFunction p)
 	{
@@ -259,8 +259,8 @@ public class PolynomialFunction implements OneVariableFunction
 	}
 	/**
 	 *
-	 * @param p DhbFunctionEvaluation.PolynomialFunction
-	 * @return DhbFunctionEvaluation.PolynomialFunction
+	 * @param r PolynomialFunction
+	 * @return PolynomialFunction
 	 */
 	public PolynomialFunction subtract( double r)
 	{
@@ -268,8 +268,8 @@ public class PolynomialFunction implements OneVariableFunction
 	}
 	/**
 	 * 
-	 * @return DhbFunctionEvaluation.PolynomialFunction
-	 * @param p DhbFunctionEvaluation.PolynomialFunction
+	 * @return PolynomialFunction
+	 * @param p PolynomialFunction
 	 */
 	public PolynomialFunction subtract( PolynomialFunction p)
 	{
@@ -320,8 +320,8 @@ public class PolynomialFunction implements OneVariableFunction
 	 * for the specified variable value in an array of two elements
 	 * @version 1.2
 	 * @param x double    value at which the polynomial is evaluated
-	 * @return double[0]   the value of the polynomial
-	 * @return double[1]   the derivative of the polynomial
+	 * @return double[0]   the value of the polynomial,
+	 *         double[1]   the derivative of the polynomial
 	 */
 	public double[] valueAndDerivative( double x)
 	{

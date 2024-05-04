@@ -129,7 +129,7 @@ public final class WeibullDistribution
 	    return Math.pow( -Math.log( 1 - x), 1. / alpha) * beta;
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

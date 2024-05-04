@@ -104,6 +104,9 @@ public class LinearRegression
 	    answer[1] = getSlope();
 	    return answer;
 	}
+	/**
+	 * 
+	 */
 	private void computeResults()
 	{
 	    double xNorm = sumXX * sum1 - sumX * sumX;
@@ -114,7 +117,7 @@ public class LinearRegression
 	                                    ( sumYY * sum1 - sumY * sumY));
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix
+	 * @return SymmetricMatrix
 	 */
 	public SymmetricMatrix errorMatrix()
 	{
@@ -170,6 +173,9 @@ public class LinearRegression
 	    sumXY -= x * y;
 	    resetResults();
 	}
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 	    sum1 = 0;

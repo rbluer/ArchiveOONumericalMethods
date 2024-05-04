@@ -43,8 +43,8 @@ public class FunctionalCurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Constructor method for given sampling rate.
-	 * @param func the function to be drawn.
-	 * @param samplingRate distance in pixels between computed points.
+	 * @param func OneVariableFunction the function to be drawn.
+	 * @param samplingRate int distance in pixels between computed points.
 	 */
 	public FunctionalCurveDefinition( OneVariableFunction func, int samplingRate) throws IllegalArgumentException
 	{
@@ -56,13 +56,19 @@ public class FunctionalCurveDefinition implements HistogramOrCurveDefinition
 	/**
 	 * Functional curve definition have no range.
 	 * They must be plotted on an already defined axis system.
+	 * @return double[]
 	 */
 	public double[] getRange()
 	{
 		return null;
 	}
+
 	/**
 	 * Mouse clicks are not handled by curves.
+	 * @param x int
+	 * @param y int
+	 * @param axes AxisSystem
+	 * @return boolean
 	 */
 	public boolean handleMouseClick(int x, int y, AxisSystem axes)
 	{
@@ -70,6 +76,8 @@ public class FunctionalCurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * plotCurve method comment.
+	 * @paramg Graphics
+	 * @param axes AxisSystem
 	 */
 	public void plotCurve(java.awt.Graphics g, AxisSystem axes)
 	{
@@ -98,20 +106,21 @@ public class FunctionalCurveDefinition implements HistogramOrCurveDefinition
 		if ( !oldColor.equals( g.getColor()) )
 			g.setColor( oldColor);
 	}
-		/**
-		 * Defines the color of the line drawn between each point.
-		 * @param color color used to draw each point.
-		 */
-		public void setLineColor( Color color)
-		{
-			lineColor = color;
-		}
 	/**
-		 * Returns null so that the default tracking window display provided by the scatterplot is used.
-		 * @see Scatterplot
-		 * @param x pixel x position of the mouse.
-		 * @param y pixel y position of the mouse.
-		 * @param axes the axis system.
+	 * Defines the color of the line drawn between each point.
+	 * @param color Color color used to draw each point.
+	 */
+	public void setLineColor( Color color)
+	{
+		lineColor = color;
+	}
+	/**
+	 * Returns null so that the default tracking window display provided by the scatterplot is used.
+	 * @see Scatterplot
+	 * @param x int pixel x position of the mouse.
+	 * @param y int pixel y position of the mouse.
+	 * @param axes AxisSystem the axis system.
+	 * @return String
 	 */
 	public String trackingWindowText(int x, int y, AxisSystem axes)
 	{

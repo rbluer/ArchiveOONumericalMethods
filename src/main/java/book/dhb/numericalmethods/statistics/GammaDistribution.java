@@ -82,6 +82,8 @@ public class GammaDistribution extends ProbabilityDensityFunction
 	/**
 	 * Assigns new values to the parameters.
 	 * This method assumes that the parameters have been already checked.
+	 * @param shape double
+	 * @param scale double
 	 */
 	public void defineParameters ( double shape, double scale)
 	{
@@ -206,7 +208,7 @@ public class GammaDistribution extends ProbabilityDensityFunction
 	    }    
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

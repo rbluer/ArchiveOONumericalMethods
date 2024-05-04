@@ -44,6 +44,7 @@ public class CurveWithError extends Curve implements PointSeriesWithErrors {
 	}
 	/**
 	 * weightAt method comment.
+	 * @param index int
 	 */
 	public double weightAt(int index)
 	{

@@ -20,7 +20,7 @@ public class EuclideanCluster extends Cluster
 	}
 	/**
 	 * Constructor method.
-	 * @param DhbVector center of the receiver
+	 * @param dataPoint DhbVector center of the receiver
 	 */
 	public EuclideanCluster(DhbVector dataPoint) 
 	{
@@ -35,7 +35,7 @@ public class EuclideanCluster extends Cluster
 	}
 	/**
 	 * @param dataPoint DhbVector    data point
-	 * @return DhbVector    square of the Euclidian distance from the data
+	 * @return double   square of the Euclidian distance from the data
 	 *                                point to the center of the receiver.
 	 */
 	public double distanceTo( DhbVector dataPoint)
@@ -52,7 +52,7 @@ public class EuclideanCluster extends Cluster
 	    return accumulator.getCount();
 	}
 	/**
-	 * @param v DhbVector    center for the receiver
+	 * @param dataPoint DhbVector    center for the receiver
 	 */
 	public void initialize(DhbVector dataPoint) 
 	{
@@ -66,6 +66,9 @@ public class EuclideanCluster extends Cluster
 	{
 	    return center == null;
 	}
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 	    super.reset();

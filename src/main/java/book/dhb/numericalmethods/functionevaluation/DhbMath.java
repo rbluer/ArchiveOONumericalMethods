@@ -48,6 +48,9 @@ public final class DhbMath
     private static final double semiIntegerScales[] = {2, 2.5, 4, 5, 7.5, 8, 10};
     private static final double integerScales[] = {2, 4, 5, 8, 10};
 
+    /**
+     * 
+     */
 	private static void computeLargestNumber()
 	{
 	    double floatingRadix = getRadix();
@@ -59,6 +62,9 @@ public final class DhbMath
 	        fullMantissaNumber *= floatingRadix;
 	    }
 	}
+	/**
+	 * 
+	 */
 	private static void computeMachinePrecision()
 	{
 	    double floatingRadix = getRadix();
@@ -71,6 +77,9 @@ public final class DhbMath
 	        tmp = 1.0d + machinePrecision;
 	    }
 	}
+	/**
+	 * 
+	 */
 	private static void computeNegativeMachinePrecision()
 	{
 	    double floatingRadix = getRadix();
@@ -83,6 +92,9 @@ public final class DhbMath
 	        tmp = 1.0d - negativeMachinePrecision;
 	    }
 	}
+	/**
+	 * 
+	 */
 	private static void computeRadix()
 	{
 	    double a = 1.0d;
@@ -99,6 +111,9 @@ public final class DhbMath
 	        radix = (int) ( tmp1 - a);
 	    }
 	}
+	/**
+	 * 
+	 */
 	private static void computeSmallestNumber()
 	{
 	    double floatingRadix = getRadix();
@@ -110,6 +125,10 @@ public final class DhbMath
 	        fullMantissaNumber *= inverseRadix;
 	    }
 	}
+	/**
+	 * 
+	 * @return double
+	 */
 	public static double defaultNumericalPrecision()
 	{
 	    if ( defaultNumericalPrecision == 0 )
@@ -138,6 +157,10 @@ public final class DhbMath
 	    double norm = Math.max( Math.abs(a), Math.abs( b));
 	    return norm < precision || Math.abs( a - b) < precision * norm;
 	}
+	/**
+	 * 
+	 * @return double
+	 */
 	public static double getLargestExponentialArgument()
 	{
 	    if ( largestExponentialArgument == 0 )
@@ -145,7 +168,8 @@ public final class DhbMath
 	    return largestExponentialArgument;
 	}
 	/**
-	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
+	 * 
+	 * @return double
 	 */
 	public static double getLargestNumber()
 	{
@@ -153,30 +177,50 @@ public final class DhbMath
 	        computeLargestNumber();
 	    return largestNumber;
 	}
+	/**
+	 * 
+	 * @return double
+	 */
 	public static double getMachinePrecision()
 	{
 	    if ( machinePrecision == 0 )
 	        computeMachinePrecision();
 	    return machinePrecision;
 	}
+	/**
+	 * 
+	 * @return double
+	 */
 	public static double getNegativeMachinePrecision()
 	{
 	    if ( negativeMachinePrecision == 0 )
 	        computeNegativeMachinePrecision();
 	    return negativeMachinePrecision;
 	}
+	/**
+	 * 
+	 * @return int
+	 */
 	public static int getRadix()
 	{
 	    if ( radix == 0 )
 	        computeRadix();
 	    return radix;
 	}
+	/**
+	 * 
+	 * @return double
+	 */
 	public static double getSmallestNumber()
 	{
 	    if ( smallestNumber == 0 )
 	        computeSmallestNumber();
 	    return smallestNumber;
 	}
+	/**
+	 * 
+	 * @param printStream PrintStream
+	 */
 	public static void printParameters( PrintStream printStream)
 	{
 	    printStream.println( "Floating-point machine parameters");
@@ -191,6 +235,9 @@ public final class DhbMath
 	    printStream.println( "Largest number = "+ getLargestNumber());
 	    return;
 	}
+	/**
+	 * 
+	 */
 	public static void reset()
 	{
 	    defaultNumericalPrecision = 0;
@@ -213,37 +260,37 @@ public final class DhbMath
 	{
 	    return Math.round( value / scale) * scale;
 	}
-	    /**
-	     * Round the specified value upward to the next scale value.
-	     * @param the value to be rounded.
-	     * @param a fag specified whether integer scale are used, otherwise double scale is used.
-	     * @return a number rounded upward to the next scale value.
-	     */
-	    public static double roundToScale( double value, boolean integerValued)
-	    {
-	        double[] scaleValues;
-	        int orderOfMagnitude = (int) Math.floor( Math.log( value) / Math.log( 10.0));
-	        if ( integerValued )
-	        {
-	            orderOfMagnitude = Math.max( 1, orderOfMagnitude);
-	            if ( orderOfMagnitude == 1)
-	                scaleValues = integerScales;
-	            else if ( orderOfMagnitude == 2)
-	                scaleValues = semiIntegerScales;
-	            else
-	                scaleValues = scales;
-	        }
-	        else
-	            scaleValues = scales;
-	        double exponent = Math.pow( 10.0, orderOfMagnitude);
-	        double rValue = value / exponent;
-	        for ( int n = 0; n < scaleValues.length; n++)
-	        {
-	            if ( rValue <= scaleValues[n])
-	                return scaleValues[n] * exponent;
-	        }
-	        return exponent;    // Should never reach here
-	    }
+    /**
+     * Round the specified value upward to the next scale value.
+     * @param value double the value to be rounded.
+     * @param integerValued boolean a fag specified whether integer scale are used, otherwise double scale is used.
+     * @return double a number rounded upward to the next scale value.
+     */
+    public static double roundToScale( double value, boolean integerValued)
+    {
+        double[] scaleValues;
+        int orderOfMagnitude = (int) Math.floor( Math.log( value) / Math.log( 10.0));
+        if ( integerValued )
+        {
+            orderOfMagnitude = Math.max( 1, orderOfMagnitude);
+            if ( orderOfMagnitude == 1)
+                scaleValues = integerScales;
+            else if ( orderOfMagnitude == 2)
+                scaleValues = semiIntegerScales;
+            else
+                scaleValues = scales;
+        }
+        else
+            scaleValues = scales;
+        double exponent = Math.pow( 10.0, orderOfMagnitude);
+        double rValue = value / exponent;
+        for ( int n = 0; n < scaleValues.length; n++)
+        {
+            if ( rValue <= scaleValues[n])
+                return scaleValues[n] * exponent;
+        }
+        return exponent;    // Should never reach here
+    }
 	/**
 	 * (c) Copyrights Didier BESSET, 1999, all rights reserved.
 	 * @return double

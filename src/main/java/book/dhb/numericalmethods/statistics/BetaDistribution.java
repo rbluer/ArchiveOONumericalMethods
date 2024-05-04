@@ -85,6 +85,8 @@ public final class BetaDistribution
 	/**
 	 * Assigns new values to the parameters.
 	 * This method assumes that the parameters have been already checked.
+	 * @param shape1
+	 * @param shape2
 	 */
 	private void defineParameters ( double shape1, double shape2)
 	{
@@ -113,7 +115,7 @@ public final class BetaDistribution
 	    return incompleteBetaFunction().value(x);
 	}
 	/**
-	 * @return DhbIterations.IncompleteBetaFunction
+	 * @return book.dhb.numericalmethods.iterations.IncompleteBetaFunction
 	 */
 	private IncompleteBetaFunction incompleteBetaFunction()
 	{
@@ -177,7 +179,7 @@ public final class BetaDistribution
 	    defineParameters( alpha1, a2);
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

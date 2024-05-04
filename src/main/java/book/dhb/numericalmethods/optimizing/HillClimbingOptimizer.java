@@ -20,14 +20,18 @@ public class HillClimbingOptimizer extends MultiVariableOptimizer
     private VectorProjectedFunction[] projections;
 	/**
 	 * Constructor method.
-	 * @param func DhbInterfaces.ManyVariableFunction
-	 * @param pointCreator DhbOptimizing.OptimizingPointFactory
+	 * @param func ManyVariableFunction
+	 * @param pointCreator OptimizingPointFactory
 	 */
 	public HillClimbingOptimizer( ManyVariableFunction func, 
 	                    OptimizingPointFactory pointCreator, double[] v)
 	{
 	    super(func, pointCreator, v);
 	}
+	/**
+	 * 
+	 * @param start DhbVector
+	 */
 	private void adjustLastDirection( DhbVector start)
 	{
 	    try {
@@ -60,6 +64,9 @@ public class HillClimbingOptimizer extends MultiVariableOptimizer
 	                            Math.abs( result[i] - x[i]), result[i]));
 	    return eps;
 	}
+	/**
+	 * 
+	 */
 	public double evaluateIteration()
 	{
 	    try {
@@ -82,6 +89,9 @@ public class HillClimbingOptimizer extends MultiVariableOptimizer
 	    catch ( NegativeArraySizeException | DhbIllegalDimension e ){ return Double.NaN;}
 	}
 	
+	/**
+	 * 
+	 */
 	public void initializeIterations()
 	{
 	    projections = new VectorProjectedFunction[ result.length];
@@ -98,6 +108,9 @@ public class HillClimbingOptimizer extends MultiVariableOptimizer
 	                                        projections[0], pointFactory);
 	    unidimensionalFinder.setDesiredPrecision( getDesiredPrecision());
 	}
+	/**
+	 * 
+	 */
 	private void rotateDirections()
 	{
 	    DhbVector firstDirection = projections[0].getDirection();

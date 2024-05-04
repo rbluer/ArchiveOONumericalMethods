@@ -64,21 +64,21 @@ public class VectorProjectedFunction implements OneVariableFunction
 	    return v;
 	}
 	/**
-	 * @return DhbMatrixAlgebra.DhbVector    direction of the receiver
+	 * @return DhbVector    direction of the receiver
 	 */
 	public DhbVector getDirection()
 	{
 	    return direction;
 	}
 	/**
-	 * @return DhbMatrixAlgebra.DhbVector    origin of the receiver
+	 * @return DhbVector    origin of the receiver
 	 */
 	public DhbVector getOrigin()
 	{
 	    return origin;
 	}
 	/**
-	 * @param v DhbMatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 * @exception NegativeArraySizeException if dimension of v is 0.
 	 */
 	public void setDirection( double[] v) throws NegativeArraySizeException
@@ -86,14 +86,14 @@ public class VectorProjectedFunction implements OneVariableFunction
 	    direction = new DhbVector( v);
 	}
 	/**
-	 * @param v DhbMatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 */
 	public void setDirection( DhbVector v)
 	{
 	    direction = v;
 	}
 	/**
-	 * @param v DhbMatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 * @exception NegativeArraySizeException if dimension of v is 0.
 	 */
 	public void setOrigin( double[] v) throws NegativeArraySizeException
@@ -101,7 +101,7 @@ public class VectorProjectedFunction implements OneVariableFunction
 	    origin = new DhbVector( v);
 	}
 	/**
-	 * @param v DhbMatrixAlgebra.DhbVector
+	 * @param v DhbVector
 	 */
 	public void setOrigin( DhbVector v)
 	{

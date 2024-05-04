@@ -31,7 +31,7 @@ public class HistogramDefinition implements HistogramOrCurveDefinition
 
 	/**
 	 * Constructor method.
-	 * @param histogram the histogram to be plotted.
+	 * @param hist Histogram the histogram to be plotted.
 	 * @see Histogram
 	 */
 	public HistogramDefinition( Histogram hist)
@@ -55,8 +55,8 @@ public class HistogramDefinition implements HistogramOrCurveDefinition
 	 * at location (x,y). This location can be converted to value using
 	 * the supplied axis system parameter.
 	 * @see AxisSystem
-	 * @param x x location of the mouse click.
-	 * @param y y location of the mouse click.
+	 * @param x int location of the mouse click.
+	 * @param y int location of the mouse click.
 	 * @param axes the axis system.
 	 * @return true if the mouse click was handled, false otherwise.
 	 */
@@ -67,8 +67,8 @@ public class HistogramDefinition implements HistogramOrCurveDefinition
 	/**
 	 * Draws the histogram or curve on the specified axis system.
 	 * @see AxisSystem
-	 * @param g the graphics context used for drawing.
-	 * @param axes the axis system.
+	 * @param g Graphics the graphics context used for drawing.
+	 * @param axes AxisSystem the axis system.
 	 */
 	public void plotCurve( Graphics g, AxisSystem axes)
 	{
@@ -110,7 +110,7 @@ public class HistogramDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the color of the outline.
-	 * @param color color used to draw each point.
+	 * @param color Color used to draw each point.
 	 */
 	public void setLineColor( Color color)
 	{
@@ -118,7 +118,7 @@ public class HistogramDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the color of the inside of the histogram.
-	 * @param color color used to draw each point.
+	 * @param color Color used to draw each point.
 	 */
 	public void setPatternColor( Color color)
 	{
@@ -128,9 +128,9 @@ public class HistogramDefinition implements HistogramOrCurveDefinition
 	 * Returns a text to be displayed in the tracking window for a given mouse location.
 	 * The supplied axis system is the axis system used to draw the curve.
 	 * @see AxisSystem
-	 * @param x pixel x position of the mouse.
-	 * @param y pixel y position of the mouse.
-	 * @param axes the axis system.
+	 * @param x int pixel x position of the mouse.
+	 * @param y int pixel y position of the mouse.
+	 * @param axes AxisSystem the axis system.
 	 */
 	public String trackingWindowText( int x, int y, AxisSystem axes)
 	{

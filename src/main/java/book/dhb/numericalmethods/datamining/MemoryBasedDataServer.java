@@ -38,7 +38,7 @@ public class MemoryBasedDataServer extends AbstractDataServer
 	{
 	}
 	/**
-	 * @return DhbMatrixAlgebra.DhbVector    next data point
+	 * @return DhbVector    next data point
 	 * @exception java.io.EOFException no more data.
 	 */
 	public DhbVector read() throws java.io.EOFException

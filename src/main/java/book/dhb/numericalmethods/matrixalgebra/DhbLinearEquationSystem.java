@@ -23,7 +23,7 @@ public class DhbLinearEquationSystem
 	 * This method was created by a SmartGuide.
 	 * @param m double[][]
 	 * @param c double[][]
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension The exception description.
+	 * @exception DhbIllegalDimension The exception description.
 	 */
 	public DhbLinearEquationSystem( double[][] m, double[][] c) throws DhbIllegalDimension
 	{
@@ -46,7 +46,7 @@ public class DhbLinearEquationSystem
 	 * Construct a system of linear equation Ax = y.
 	 * @param m double[][]		components of the system's matrix
 	 * @param c double[]	components of the constant vector
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension The exception description.
+	 * @exception DhbIllegalDimension The exception description.
 	 */
 	public DhbLinearEquationSystem( double[][] m, double[] c) throws DhbIllegalDimension
 	{
@@ -64,7 +64,7 @@ public class DhbLinearEquationSystem
 		}	
 	}
 	/**
-	 * Computes the solution for constant vector p applying backsubstitution.
+	 * Computes the solution for constant vector p applying back substitution.
 	 * @param p int
 	 * @exception java.lang.ArithmeticException if one diagonal element of the triangle matrix is zero.
 	 */

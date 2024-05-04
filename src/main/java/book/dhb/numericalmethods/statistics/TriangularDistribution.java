@@ -112,7 +112,7 @@ public final class TriangularDistribution
 	                    : b - Math.sqrt( (1 - x) * (b - a) * ( b - c));
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

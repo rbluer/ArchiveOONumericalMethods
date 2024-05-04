@@ -2,7 +2,7 @@ package book.dhb.numericalmethods.optimizing;
 
 import book.dhb.numericalmethods.interfaces.OneVariableFunction;
 /**
- * Point & function holder used in optimizing one-variable functions.
+ * Point &amp; function holder used in optimizing one-variable functions.
  *
  * @author Didier H. Besset
  */

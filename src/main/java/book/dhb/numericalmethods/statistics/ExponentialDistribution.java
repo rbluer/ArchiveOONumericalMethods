@@ -16,7 +16,7 @@ public final class ExponentialDistribution
 
 	/**
 	 * General constructor method.
-	 * @param exponential fall-off
+	 * @param fallOff double exponential fall-off
 	 * @exception java.lang.IllegalArgumentException
 	 *                                    if the fall-off is non-positive.
 	 */
@@ -32,7 +32,7 @@ public final class ExponentialDistribution
 	 * Create an instance of the receiver with parameters estimated from
 	 * the given histogram using best guesses. This method can be used to
 	 * find the initial values for a fit.
-	 * @param h DhbScientificCurves.Histogram
+	 * @param h Histogram
 	 * @exception java.lang.IllegalArgumentException
 	 *                            when no suitable parameter can be found.
 	 */
@@ -58,7 +58,7 @@ public final class ExponentialDistribution
 	/**
 	 * Returns the probability of finding a random variable smaller
 	 * than or equal to x.
-	 * @return integral of the probability density function from 0 to x.
+	 * @return double integral of the probability density function from 0 to x.
 	 * @param x double upper limit of integral.
 	 */
 	public double distributionValue ( double x)

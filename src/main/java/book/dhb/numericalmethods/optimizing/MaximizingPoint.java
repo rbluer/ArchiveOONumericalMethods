@@ -2,7 +2,7 @@ package book.dhb.numericalmethods.optimizing;
 
 import book.dhb.numericalmethods.interfaces.OneVariableFunction;
 /**
- * Point & function holder used in maximizing one-variable functions.
+ * Point &amp; function holder used in maximizing one-variable functions.
  *
  * @author Didier H. Besset
  */
@@ -10,7 +10,7 @@ public class MaximizingPoint extends OptimizingPoint {
 	/**
 	 * Constructor method.
 	 * @param x double
-	 * @param f DhbInterfaces.OneVariableFunction
+	 * @param f book.dhb.numericalmethods.interfaces.OneVariableFunction
 	 */
 	public MaximizingPoint(double x, OneVariableFunction f)
 	{

@@ -22,8 +22,7 @@ public class LUPDecomposition
 	/**
 	 * Constructor method
 	 * @param components double[][]
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension 
-	 *                                    the supplied matrix is not square
+	 * @exception DhbIllegalDimension the supplied matrix is not square
 	 */
 	public LUPDecomposition ( double[][]components)
 	                                            throws DhbIllegalDimension
@@ -37,9 +36,8 @@ public class LUPDecomposition
 	}
 	/**
 	 * Constructor method.
-	 * @param m DhbMatrixAlgebra.Matrix
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension 
-	 *                                    the supplied matrix is not square
+	 * @param m Matrix
+	 * @exception DhbIllegalDimension the supplied matrix is not square
 	 */
 	public LUPDecomposition ( Matrix m) throws DhbIllegalDimension
 	{
@@ -50,7 +48,7 @@ public class LUPDecomposition
 	}
 	/**
 	 * Constructor method.
-	 * @param m DhbMatrixAlgebra.DhbSymmetricMatrix
+	 * @param m DhbSymmetricMatrix
 	 */
 	public LUPDecomposition ( SymmetricMatrix m)
 	{
@@ -73,6 +71,9 @@ public class LUPDecomposition
 	    }
 	    return answer;
 	}
+	/**
+	 * 
+	 */
 	private void decompose()
 	{
 	    int n = rows.length;
@@ -146,8 +147,7 @@ public class LUPDecomposition
 	    initialize();
 	}
 	/**
-	 * @return double[]
-	 * @param c double[]
+	 * @return double[][]
 	 */
 	public double[][] inverseMatrixComponents()
 	{
@@ -213,8 +213,8 @@ public class LUPDecomposition
 	                    : null;
 	}
 	/**
-	 * @return double[]
-	 * @param c double[]
+	 * @return DhbVector
+	 * @param c DhbVector
 	 */
 	public DhbVector solve( DhbVector c)
 	{
@@ -248,7 +248,7 @@ public class LUPDecomposition
 	/**
 	 * Make sure the supplied matrix components are those of
 	 * a symmetric matrix
-	 * @param components double
+	 * @param components double[][]
 	 */
 	public static void symmetrizeComponents( double[][] components)
 	{

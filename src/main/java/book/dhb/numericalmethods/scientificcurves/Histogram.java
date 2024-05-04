@@ -347,6 +347,7 @@ public class Histogram implements PointSeries
 	 * lies outside of the histogram limits.
 	 * @return a 3-dimensional array containing the bin limits and
 	 *                                                    the bin content.
+	 * @param x double
 	 */
 	public double[] getBinParameters( double x)
 	{

@@ -18,7 +18,7 @@ public class CovarianceCluster extends Cluster
 	}
 	/**
 	 * Constructor method.
-	 * @param DhbVector center of the receiver
+	 * @param v DhbVector center of the receiver
 	 */
 	public CovarianceCluster(DhbVector v)
 	{
@@ -26,6 +26,7 @@ public class CovarianceCluster extends Cluster
 	}
 	/**
 	 * Accumulation is delegated to the Mahalanobis center.
+	 * @param dataPoint DhbVector
 	 */
 	public void accumulate(DhbVector dataPoint)
 	{
@@ -33,6 +34,7 @@ public class CovarianceCluster extends Cluster
 	}
 	/**
 	 * Distance computation is delegated to the Mahalanobis center.
+	 * @param dataPoint DhbVector
 	 */
 	public double distanceTo( DhbVector dataPoint)
 	{
@@ -59,6 +61,9 @@ public class CovarianceCluster extends Cluster
 	{
 	    return center == null;
 	}
+	/**
+	 * 
+	 */
 	public void reset()
 	{
 	    super.reset();

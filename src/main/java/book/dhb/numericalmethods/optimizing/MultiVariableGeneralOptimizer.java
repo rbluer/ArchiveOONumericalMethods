@@ -15,8 +15,8 @@ public class MultiVariableGeneralOptimizer extends MultiVariableOptimizer
     protected double[] range;
 	/**
 	 * Constructor method.
-	 * @param func DhbInterfaces.ManyVariableFunction
-	 * @param pointCreator DhbOptimizing.OptimizingPointFactory
+	 * @param func ManyVariableFunction
+	 * @param pointCreator OptimizingPointFactory
 	 * @param initialValue double[]
 	 */
 	public MultiVariableGeneralOptimizer(ManyVariableFunction func,
@@ -24,6 +24,9 @@ public class MultiVariableGeneralOptimizer extends MultiVariableOptimizer
 	{
 	    super(func, pointCreator, initialValue);
 	}
+	/**
+	 * 
+	 */
 	public double evaluateIteration()
 	{
 	    HillClimbingOptimizer finder = new HillClimbingOptimizer( f, pointFactory, 
@@ -34,12 +37,18 @@ public class MultiVariableGeneralOptimizer extends MultiVariableOptimizer
 	    result = finder.getResult();
 	    return finder.getPrecision();
 	}
+	/**
+	 * 
+	 */
 	public void initializeIterations()
 	{
 	    if ( range != null )
 	        performGeneticOptimization();
 	    performSimplexOptimization();
 	}
+	/**
+	 * 
+	 */
 	private void performGeneticOptimization()
 	{
 	    VectorChromosomeManager manager = new VectorChromosomeManager();
@@ -49,6 +58,9 @@ public class MultiVariableGeneralOptimizer extends MultiVariableOptimizer
 	    finder.evaluate();
 	    result = finder.getResult();
 	}
+	/**
+	 * 
+	 */
 	private void performSimplexOptimization()
 	{
 	    SimplexOptimizer finder = new SimplexOptimizer( f, pointFactory, result);

@@ -29,7 +29,7 @@ public class LargestEigenvalueFinder extends IterativeProcess
 	/**
 	 * Constructor method.
 	 * @param prec double
-	 * @param a DhbMatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	public LargestEigenvalueFinder ( double prec, Matrix a)
 	{
@@ -38,7 +38,7 @@ public class LargestEigenvalueFinder extends IterativeProcess
 	}
 	/**
 	 * Constructor method.
-	 * @param a DhbMatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	public LargestEigenvalueFinder ( Matrix a) 
 	{
@@ -55,7 +55,7 @@ public class LargestEigenvalueFinder extends IterativeProcess
 	}
 	/**
 	 * Returns the normalized eigen vector found by the receiver.
-	 * @return DhbMatrixAlgebra.DhbVector
+	 * @return DhbVector
 	 */
 	public DhbVector eigenvector ( )
 	{
@@ -95,7 +95,7 @@ public class LargestEigenvalueFinder extends IterativeProcess
 	}
 	/**
 	 * Returns a finder to find the next largest eigen value of the receiver's matrix.
-	 * @return DhbMatrixAlgebra.LargestEigenvalueFinder
+	 * @return LargestEigenvalueFinder
 	 */
 	public LargestEigenvalueFinder nextLargestEigenvalueFinder ( )
 	{

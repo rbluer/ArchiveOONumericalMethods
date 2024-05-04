@@ -39,7 +39,7 @@ public class Curve implements PointSeries
 	}
 	/**
 	 * Removes the point at the specified index.
-	 * @param int index of the point to remove
+	 * @param index int of the point to remove
 	 */
 	public void removePointAt( int index)
 	{
@@ -54,7 +54,7 @@ public class Curve implements PointSeries
 	}
 	/**
 	 * @return double the x coordinate of the point at the given index.
-	 * @param int index the index of the point.
+	 * @param index int the index of the point.
 	 */
 	public double xValueAt( int index)
 	{
@@ -62,7 +62,7 @@ public class Curve implements PointSeries
 	}
 	/**
 	 * @return double the y coordinate of the point at the given index.
-	 * @param int index the index of the point.
+	 * @param index int the index of the point.
 	 */
 	public double yValueAt( int index)
 	{

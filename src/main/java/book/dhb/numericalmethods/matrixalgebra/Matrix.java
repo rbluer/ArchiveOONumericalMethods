@@ -7,7 +7,13 @@ package book.dhb.numericalmethods.matrixalgebra;
  */
 public class Matrix
 {
+	/**
+	 * 
+	 */
     protected double[][] components;
+    /**
+     * 
+     */
     protected LUPDecomposition lupDecomposition = null;
 
 	/**
@@ -34,8 +40,8 @@ public class Matrix
 	    clear();    
 	}
 	/**
-	 * @param a MatrixAlgebra.Matrix
-	 * @exception MatrixAlgebra.DhbIllegalDimension if the supplied matrix
+	 * @param a Matrix
+	 * @exception DhbIllegalDimension if the supplied matrix
 	 *                                    does not have the same dimensions.
 	 */
 	public void accumulate ( Matrix a) throws DhbIllegalDimension
@@ -53,10 +59,10 @@ public class Matrix
 	    }    
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix        sum of the receiver with the
+	 * @return Matrix        sum of the receiver with the
 	 *                                                    supplied matrix.
-	 * @param a MatrixAlgebra.Matrix
-	 * @exception MatrixAlgebra.DhbIllegalDimension if the supplied matrix
+	 * @param a Matrix
+	 * @exception DhbIllegalDimension if the supplied matrix
 	 *                                    does not have the same dimensions.
 	 */
 	public Matrix add ( Matrix a) throws DhbIllegalDimension
@@ -72,7 +78,7 @@ public class Matrix
 	 * Computes the components of the sum of the receiver and
 	 *                                                    a supplied matrix.
 	 * @return double[][]
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	protected double[][] addComponents ( Matrix a)
 	{
@@ -86,6 +92,9 @@ public class Matrix
 	    }    
 	    return newComponents;
 	}
+	/**
+	 * 
+	 */
 	public void clear()
 	{
 	    int m = components[0].length;
@@ -112,7 +121,7 @@ public class Matrix
 	}
 	/**
 	 * @return double
-	 * @exception MatrixAlgebra.DhbIllegalDimension if the supplied 
+	 * @exception DhbIllegalDimension if the supplied 
 	 *                                                matrix is not square.
 	 */
 	public double determinant () throws DhbIllegalDimension
@@ -121,7 +130,7 @@ public class Matrix
 	}
 	/**
 	 * @return true if the supplied matrix is equal to the receiver.
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	public boolean equals( Matrix a)
 	{
@@ -142,7 +151,7 @@ public class Matrix
 	    return true;
 	}
 	/**
-	 * @return DhbMatrixAlgebra.DhbMatrix        inverse of the receiver
+	 * @return DhbMatrix        inverse of the receiver
 	 *                or pseudoinverse if the receiver is not a square matrix.
 	 * @exception java.lang.ArithmeticException if the receiver is
 	 *                                                    a singular matrix.
@@ -176,8 +185,7 @@ public class Matrix
 	    return lupDecomposition;
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix        product of the matrix with
-	 *                                                    a supplied number
+	 * @return Matrix        product of the matrix with a supplied number
 	 * @param a double    multiplicand.
 	 */
 	public Matrix product ( double a)
@@ -186,8 +194,9 @@ public class Matrix
 	}
 	/**
 	 * Computes the product of the matrix with a vector.
-	 * @return DHBmatrixAlgebra.DhbVector
-	 * @param v DHBmatrixAlgebra.DhbVector
+	 * @return DhbVector
+	 * @param v DhbVector
+	 * @throws DhbIllegalDimension
 	 */
 	public DhbVector product ( DhbVector v) throws DhbIllegalDimension
 	{
@@ -200,10 +209,10 @@ public class Matrix
 	    return secureProduct( v);
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix        product of the receiver with the
+	 * @return Matrix        product of the receiver with the
 	 *                                                    supplied matrix
-	 * @param a MatrixAlgebra.Matrix
-	 * @exception MatrixAlgebra.DhbIllegalDimension If the number of
+	 * @param a Matrix
+	 * @exception DhbIllegalDimension If the number of
 	 *                    columns of the receiver are not equal to the
 	 *                                number of rows of the supplied matrix.
 	 */
@@ -237,7 +246,7 @@ public class Matrix
 	/**
 	 * @return double[][]    the components of the product of the receiver
 	 *                                            with the supplied matrix
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	protected double[][] productComponents ( Matrix a)
 	{
@@ -258,10 +267,10 @@ public class Matrix
 	    return newComponents;
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix    product of the receiver with the
-	 *                                    tranpose of the supplied matrix
-	 * @param a MatrixAlgebra.Matrix
-	 * @exception MatrixAlgebra.DhbIllegalDimension If the number of
+	 * @return Matrix    product of the receiver with the
+	 *                                    transpose of the supplied matrix
+	 * @param a Matrix
+	 * @exception DhbIllegalDimension If the number of
 	 *                        columns of the receiver are not equal to
 	 *                        the number of columns of the supplied matrix.
 	 */
@@ -280,7 +289,7 @@ public class Matrix
 	/**
 	 * @return double[][]    the components of the product of the receiver
 	 *                            with the transpose of the supplied matrix
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	protected double[][] productWithTransposedComponents ( Matrix a)
 	{
@@ -309,8 +318,8 @@ public class Matrix
 	}
 	/**
 	 * Computes the product of the matrix with a vector.
-	 * @return DHBmatrixAlgebra.DhbVector
-	 * @param v DHBmatrixAlgebra.DhbVector
+	 * @return DhbVector
+	 * @param v DhbVector
 	 */
 	protected DhbVector secureProduct ( DhbVector v)
 	{
@@ -327,9 +336,9 @@ public class Matrix
 	}
 	/**
 	 * Same as product(Matrix a), but without dimension checking.
-	 * @return MatrixAlgebra.Matrix        product of the receiver with the
+	 * @return Matrix        product of the receiver with the
 	 *                                                    supplied matrix
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	protected Matrix secureProduct ( Matrix a)
 	{
@@ -337,18 +346,18 @@ public class Matrix
 	}
 	/**
 	 * Same as subtract ( DhbMarix a), but without dimension checking.
-	 * @return MatrixAlgebra.Matrix
-	 * @param a MatrixAlgebra.Matrix
+	 * @return Matrix
+	 * @param a Matrix
 	 */
 	protected Matrix secureSubtract ( Matrix a)
 	{
 	    return new Matrix( subtractComponents( a));
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix        subtract the supplied matrix to
+	 * @return Matrix        subtract the supplied matrix to
 	 *                                                        the receiver.
-	 * @param a MatrixAlgebra.Matrix
-	 * @exception MatrixAlgebra.DhbIllegalDimension if the supplied matrix
+	 * @param a Matrix
+	 * @exception DhbIllegalDimension if the supplied matrix
 	 *                                    does not have the same dimensions.
 	 */
 	public Matrix subtract ( Matrix a) throws DhbIllegalDimension
@@ -362,7 +371,7 @@ public class Matrix
 	}
 	/**
 	 * @return double[][]
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	protected double[][] subtractComponents ( Matrix a)
 	{
@@ -416,7 +425,7 @@ public class Matrix
 	    return sb.toString();
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix        transpose of the receiver
+	 * @return Matrix        transpose of the receiver
 	 */
 	public Matrix transpose ( )
 	{
@@ -431,7 +440,7 @@ public class Matrix
 	    return new Matrix( newComponents);
 	}
 	/**
-	 * @return DhbMatrixAlgebra.SymmetricMatrix    the transposed product
+	 * @return SymmetricMatrix    the transposed product
 	 *                                        of the receiver with itself.
 	 */
 	public SymmetricMatrix transposedProduct()
@@ -439,10 +448,10 @@ public class Matrix
 	    return new SymmetricMatrix( transposedProductComponents( this));
 	}
 	/**
-	 * @return MatrixAlgebra.Matrix    product of the tranpose of the
+	 * @return Matrix    product of the tranpose of the
 	 *                                    receiver with the supplied matrix
-	 * @param a MatrixAlgebra.Matrix
-	 * @exception MatrixAlgebra.DhbIllegalDimension If the number of rows
+	 * @param a Matrix
+	 * @exception DhbIllegalDimension If the number of rows
 	 *                             of the receiver are not equal to 
 	 *                            the number of rows of the supplied matrix.
 	 */
@@ -460,7 +469,7 @@ public class Matrix
 	 * @return double[][]    the components of the product of the
 	 *                                            transpose of the receiver
 	 * with the supplied matrix.
-	 * @param a MatrixAlgebra.Matrix
+	 * @param a Matrix
 	 */
 	protected double[][] transposedProductComponents ( Matrix a)
 	{

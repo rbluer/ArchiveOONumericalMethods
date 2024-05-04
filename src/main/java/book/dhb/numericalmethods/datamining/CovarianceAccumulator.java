@@ -97,7 +97,6 @@ public class CovarianceAccumulator extends VectorAccumulator
 	/**
 	 * @return double
 	 * @param n int
-	 * @param m int
 	 */
 	public double standardDeviation( int n)
 	{

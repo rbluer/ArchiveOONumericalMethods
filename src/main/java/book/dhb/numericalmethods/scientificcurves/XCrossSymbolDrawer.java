@@ -8,11 +8,11 @@ public class XCrossSymbolDrawer extends AbstractSymbolDrawer
 {
 
 	/**
-	 * Symbol ploting method.
-	 * @param g graphics context used to perform the drawing.
-	 * @param xPosition x position of symbol
-	 * @param yPosition y position of symbol
-	 * @param size of symbol
+	 * Symbol plotting method.
+	 * @param g java.awt.Graphics context used to perform the drawing.
+	 * @param x int Position x position of symbol
+	 * @param y int Position y position of symbol
+	 * @param size int Size of symbol
 	 */
 	public void plotSymbol(java.awt.Graphics g, int x, int y, int size)
 	{

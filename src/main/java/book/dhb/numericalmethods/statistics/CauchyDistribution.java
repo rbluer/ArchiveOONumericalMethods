@@ -93,7 +93,7 @@ public final class CauchyDistribution
 	    return Math.tan( (x - 0.5) * Math.PI) * beta + mu;
 	}
 	/**
-	 * @param center double
+	 * @param width double
 	 */
 	public void setBeta( double width)
 	{
@@ -107,7 +107,7 @@ public final class CauchyDistribution
 	    mu = center;
 	}
 	/**
-	 * @param p double[]    assigns the parameters
+	 * @param params double[]    assigns the parameters
 	 */
 	public void setParameters( double[] params)
 	{

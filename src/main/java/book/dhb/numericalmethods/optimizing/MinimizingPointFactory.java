@@ -4,7 +4,7 @@ import book.dhb.numericalmethods.interfaces.ManyVariableFunction;
 import book.dhb.numericalmethods.interfaces.OneVariableFunction;
 
 /**
- * Factory of point/vector & function holders for minimizing functions.
+ * Factory of point/vector &amp; function holders for minimizing functions.
  *
  * @author Didier H. Besset
  */

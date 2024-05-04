@@ -21,7 +21,7 @@ public class LinearEquations
 	 * Construct a system of linear equation Ax = y1, y2,....
 	 * @param m double[][]
 	 * @param c double[][]
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension
+	 * @exception DhbIllegalDimension
 	 *                                if the system's matrix is not square
 	 *                                if constant dimension does not match
 	 *                                            that of the matrix
@@ -50,7 +50,7 @@ public class LinearEquations
 	 * Construct a system of linear equation Ax = y.
 	 * @param m double[][]        components of the system's matrix
 	 * @param c double[]    components of the constant vector
-	 * @exception DhbMatrixAlgebra.DhbIllegalDimension
+	 * @exception DhbIllegalDimension
 	 *                                if the system's matrix is not square
 	 *                                if constant dimension does not match
 	 *                                            that of the matrix
@@ -76,9 +76,9 @@ public class LinearEquations
 	}
 	/**
 	 * Construct a system of linear equation Ax = y.
-	 * @param a MatrixAlgebra.Matrix    matrix A
-	 * @param y MatrixAlgebra.DhbVector    vector y
-	 * @exception MatrixAlgebra.DhbIllegalDimension
+	 * @param a Matrix    matrix A
+	 * @param y DhbVector    vector y
+	 * @exception DhbIllegalDimension
 	 *                                if the system's matrix is not square
 	 *                                if vector dimension does not match
 	 *                                            that of the matrix
@@ -170,7 +170,7 @@ public class LinearEquations
 	}
 	/**
 	 * Return the vector solution of constants indexed by p.
-	 * @return DHBmatrixAlgebra.DhbVector
+	 * @return DhbVector
 	 * @param p int    index of the constant vector fed into the system.
 	 * @exception java.lang.ArithmeticException
 	 *                                    if the system cannot be solved.

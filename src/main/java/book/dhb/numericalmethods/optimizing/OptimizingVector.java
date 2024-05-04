@@ -3,7 +3,7 @@ package book.dhb.numericalmethods.optimizing;
 
 import book.dhb.numericalmethods.interfaces.ManyVariableFunction;
 /**
- * Vector & function holder used in optimizing many-variable functions.
+ * Vector &amp; function holder used in optimizing many-variable functions.
  *
  * @author Didier H. Besset
  */

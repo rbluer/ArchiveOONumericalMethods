@@ -128,7 +128,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 
 	/**
 	 * Constructor method.
-	 * @param pts the series of points to be plotted.
+	 * @param pts PointSeries the series of points to be plotted.
 	 * @see PointSeries
 	 */
 	public CurveDefinition( PointSeries pts)
@@ -140,7 +140,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Returns the range of values to be plotted.
-	 * @return An array of 4 double values as follows
+	 * @return double[] An array of 4 double values as follows
 	 * index 0: minimum of X range
 	 *       1: maximum of X range
 	 *       2: minimum of Y range
@@ -177,9 +177,9 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	 * If the mouse click falls within the symbol size of a point, the index of
 	 * that point is passed to the mouse listener, along with the defined parameter.
 	 * @see #setMouseListener
-	 * @param x pixel x location of the mouse click.
-	 * @param y pixel y location of the mouse click.
-	 * @param axes axis system used to draw the curve.
+	 * @param x int pixel x location of the mouse click.
+	 * @param y int pixel y location of the mouse click.
+	 * @param axes AxisSystem axis system used to draw the curve.
 	 */
 	public boolean handleMouseClick( int x, int y, AxisSystem axes)
 	{
@@ -200,8 +200,8 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Draws the curve.
-	 * @param g graphics context used to perform the drawing.
-	 * @param axes axis system used to draw the curve.
+	 * @param g Graphics graphics context used to perform the drawing.
+	 * @param axes AxisSystem axis system used to draw the curve.
 	 */
 	public void plotCurve( Graphics g, AxisSystem axes)
 	{
@@ -213,8 +213,8 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Draws a line between each point of the curve.
-	 * @param g graphics context used to perform the drawing.
-	 * @param axes axis system used to draw the curve.
+	 * @param g Graphics graphics context used to perform the drawing.
+	 * @param axes AxisSystem axis system used to draw the curve.
 	 */
 	private void plotLine( Graphics g, AxisSystem axes)
 	{
@@ -236,8 +236,8 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Draws each point of the curve.
-	 * @param g graphics context used to perform the drawing.
-	 * @param axes axis system used to draw the curve.
+	 * @param g Graphics graphics context used to perform the drawing.
+	 * @param axes AxisSystem axis system used to draw the curve.
 	 */
 	private void plotPoints( Graphics g, AxisSystem axes)
 	{
@@ -262,7 +262,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the color of the line drawn between each point.
-	 * @param color color used to draw each point.
+	 * @param color Color color used to draw each point.
 	 */
 	public void setLineColor( Color color)
 	{
@@ -270,7 +270,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the type of line drawn between each point.
-	 * @param type line identifier (use the predefined symbol types).
+	 * @param type int line identifier (use the predefined symbol types).
 	 */
 	public void setLineType( int type)
 	{
@@ -283,8 +283,8 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	 * identified by a different parameter.
 	 * The mouse listener must implement the CurveMouseClickListener interface.
 	 * @see CurveMouseClickListener
-	 * @param aListener a mouse listener object.
-	 * @param param an object used to identify the curve.
+	 * @param aListener CurveMouseClickListener a mouse listener object.
+	 * @param param Object an object used to identify the curve.
 	 */
 	public void setMouseListener( CurveMouseClickListener aListener, Object param)
 	{
@@ -293,7 +293,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the color of the symbol drawn at each point.
-	 * @param color color used to draw each point.
+	 * @param color Color color used to draw each point.
 	 */
 	public void setSymbolColor( Color color)
 	{
@@ -301,7 +301,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the size of the symbol drawn at each point.
-	 * @param size symbol size in pixels.
+	 * @param size int symbol size in pixels.
 	 */
 	public void setSymbolSize( int size)
 	{
@@ -309,7 +309,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	}
 	/**
 	 * Defines the type of the symbol drawn at each point.
-	 * @param type symbol identifier (use the predefined symbol types).
+	 * @param type int symbol identifier (use the predefined symbol types).
 	 */
 	public void setSymbolType( int type)
 	{
@@ -359,9 +359,9 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	/**
 	 * Returns null so that the default tracking window display provided by the scatterplot is used.
 	 * @see Scatterplot
-	 * @param x pixel x position of the mouse.
-	 * @param y pixel y position of the mouse.
-	 * @param axes the axis system.
+	 * @param x int pixel x position of the mouse.
+	 * @param y int pixel y position of the mouse.
+	 * @param axes AxisSystem the axis system.
 	 */
 	public String trackingWindowText( int x, int y, AxisSystem axes)
 	{
