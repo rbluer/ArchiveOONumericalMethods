@@ -99,7 +99,9 @@ public class NevilleInterpolator extends LagrangeInterpolator
 	    }
 	    int size = points.size();
 	    answer[0] = leftErrors[ nearestIndex--];
-	    double leftDist, rightDist, ratio;
+	    
+	    @SuppressWarnings( "unused" )
+		double leftDist, rightDist, ratio;
 	    for ( int m = 0; m < size - 1; m++)
 	    {
 	        for ( int n = 0; n < size - 1 - m; n++)

@@ -65,10 +65,13 @@ public class Scatterplot extends Canvas implements MouseListener, MouseMotionLis
 	 * Default is true.
 	 */
 	private boolean cartesianAxes;
+	
 	/**
 	 * Origin of the axes (crossing of x and y axes) in pixel coordinates.
 	 */
+	@SuppressWarnings( "unused" )
 	private Point axisOrigin;
+	
 	/**
 	 * Size of the tickmarks on both axes in pixels.
 	 */

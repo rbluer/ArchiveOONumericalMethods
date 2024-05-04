@@ -96,6 +96,8 @@ public class MultiLineLabel extends Canvas
 	private void paintCenter( Graphics g)
 	{
 		FontMetrics fm = g.getFontMetrics();
+		
+		@SuppressWarnings( "unused" )
 		int x = margin.width;
 		int y = fm.getAscent() + margin.height;
 		for( int n = 0; n < lines.size(); n++)
@@ -125,6 +127,8 @@ public class MultiLineLabel extends Canvas
 	private void paintRight( Graphics g)
 	{
 		FontMetrics fm = g.getFontMetrics();
+		
+		@SuppressWarnings( "unused" )
 		int x = margin.width;
 		int y = fm.getAscent() + margin.height;
 		for( int n = 0; n < lines.size(); n++)

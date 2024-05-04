@@ -149,6 +149,7 @@ public class CurveDefinition implements HistogramOrCurveDefinition
 	public double[] getRange( )
 	{
 		double x;
+		@SuppressWarnings( "unused" )
 		double y;
 		double[] range = new double[4];
 		range[0] = points.xValueAt(0);

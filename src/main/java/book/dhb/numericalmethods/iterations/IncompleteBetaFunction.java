@@ -24,7 +24,8 @@ public class IncompleteBetaFunction implements OneVariableFunction
      * Continued fractions.
      */
     private IncompleteBetaFunctionFraction fraction;
-    private IncompleteBetaFunctionFraction inverseFraction;
+    @SuppressWarnings( "unused" )
+	private IncompleteBetaFunctionFraction inverseFraction;
 
 	/**
 	 * Constructor method.

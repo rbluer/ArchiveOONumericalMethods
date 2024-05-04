@@ -21,6 +21,7 @@ public class MyClass {
 	{
 	    System.out.println("\t=> Executing private method in superclass.");
 	}
+	@SuppressWarnings( "unused" )
 	private void privateSuper() {
 	    privateCommon();
 	}

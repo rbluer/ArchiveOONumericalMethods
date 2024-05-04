@@ -139,7 +139,8 @@ public class SimplexOptimizer extends MultiVariableOptimizer
 	public double evaluateIteration()
 	{
 	    try { 
-	        double bestValue = simplex[0].getValue();
+	        @SuppressWarnings( "unused" )
+			double bestValue = simplex[0].getValue();
 	        DhbVector g = centerOfGravity();
 	        if ( !addReflection( g) )
 	        {
