@@ -10,7 +10,7 @@ public class MySubclass extends MyClass {
 	    System.out.println("Start running MySubclass.privateSub");
 	    objectB.privateSub();
 	}
-	private void privateCommon()
+	public void privateCommon()
 	{
 	    System.out.println("\t=> Executing private method in subclass.");
 	}
