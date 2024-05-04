@@ -35,9 +35,13 @@ OO Numerical Methods - Build Details:
   Version:    ${project.version}
   Build Time: ${getCurrentTimestamp()}
 
-ArchiveOONumericalMethods:
-  * Non-executable, minimized jar, with source: about 2,540 KB for v1.1.0
-  /ArchiveOONumericalMethods/build/libs/ArchiveOONumericalMethods-${project.version}-all.jar
+Generated jar details:
+  /ArchiveOONumericalMethods/build/libs/
+    - ArchiveOONumericalMethods-${project.version}.jar
+    - ArchiveOONumericalMethods-${project.version}-all.jar 
+       : Non-executable, minimized fat-jar, with source.
+    - ArchiveOONumericalMethods-${project.version}-javadoc.jar
+    - ArchiveOONumericalMethods-${project.version}-source.jar
 
 Updating gradle:
   Gradle versions: https://gradle.org/releases/
@@ -84,14 +88,18 @@ dependencies {
     // implementation(libs.guava)
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
+
+
 java {
 
 	// Build the jars with their source code:
 	withSourcesJar()
 	
-	withJavadocJar()
+	//withJavadoc()
+	//withJavadocJar()
+
 		
+	// Apply a specific Java toolchain to ease working on different environments.
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
@@ -103,13 +111,25 @@ tasks.named("test") {
 }
 
 
+// Packages the generated javadocs in to it's own jar file:
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+
+
 shadowJar {
+	dependsOn( javadocJar )
 
 	from sourceSets.main.allSource
 	
-	minimize()
+	//copy generated javadocs into the -all.jar 
+	//from javadoc.destinationDir into 'javadoc'
 	
+	minimize()
 }
+
 
 build.dependsOn(shadowJar)
 
